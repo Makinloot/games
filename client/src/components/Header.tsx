@@ -1,10 +1,12 @@
+import logo from '../logo.png';
+
 const Header = () => {
   return (
     <div className="Header">
       <div className="container">
         <div className="Header-wrapper flex-row">
           <a href="/" className="Header-logo">
-            <h1>Karma</h1>
+            <img src={logo} alt="logo" />
           </a>
           <nav className="Header-menu">
             <a href="/">Home</a>
