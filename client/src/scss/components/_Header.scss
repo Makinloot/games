@@ -1,0 +1,24 @@
+.Header {
+  padding: 2rem 0;
+
+  &-wrapper {
+    justify-content: space-between;
+  }
+
+  &-logo {
+    font-size: $fs-big;
+  }
+
+  &-menu {
+    font-size: $fs-regular;
+    
+    a {
+      margin-right: 20px;
+      @extend %link;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

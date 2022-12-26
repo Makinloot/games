@@ -1,0 +1,9 @@
+@import "./assets/vars";
+@import "./assets/reset";
+@import "./assets/utils";
+
+@import "./components/Header";
+
+body {
+  background-color: $clr-nightblue;
+}

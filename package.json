@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "cd client && npm run dev",
+    "sass": "cd client/src && npm run sass",
+    "devServer": "cd server && npm run dev",
+    "dev": "concurrently \"npm run devServer\" \"npm run client\" \"npm run sass\""
   },
   "author": "Tornike Epitashvili",
   "license": "ISC",
