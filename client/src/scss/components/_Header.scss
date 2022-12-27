@@ -20,6 +20,7 @@
 
   &-burger {
     position: relative;
+    display: none;
 
     &:has(.burger-menu.active) {
       pointer-events: none;
@@ -83,6 +84,19 @@
         font-family: $ff-bold;
         text-transform: capitalize;
       }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Header {
+
+    &-menu {
+      display: none;
+    }
+
+    &-burger {
+      display: block;
     }
   }
 }
