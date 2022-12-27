@@ -1,0 +1,79 @@
+.Footer {
+  margin: 2rem 0 5rem;
+  &-wrapper {
+    position: relative;
+    padding: 2rem;
+    border: 1px solid #fff;
+    border-radius: .5rem;
+  }
+
+  &-search {
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+
+    form {
+      position: relative;
+      display: inline-block;
+    }
+
+    input {
+      padding: .5rem 1rem;
+      color: $clr-dark;
+      font-size: $fs-small;
+      font-family: $ff-bold;
+      outline: none;
+      border: none;
+      border-radius: .5rem;
+    }
+
+    input[type=submit] {
+      position: absolute;
+      height: 100%;
+      right: -65px;
+      border-radius: 0 .5rem .5rem 0;
+      background-color: $clr-aquablue;
+      color: $clr-white;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: $fs-big;
+      text-transform: capitalize;
+    }
+  }
+
+  &-socials {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    padding: 0 .5rem;
+    justify-content: space-between;
+
+    .footer-link {
+      @extend %link;
+      margin-right: 1rem;
+      font-size: $fs-small;
+    }
+    
+    .socials {
+      gap: .5rem;
+    }
+
+    a > svg {
+
+      &:active {
+        scale: .9;
+        transition: .2s;
+      }
+    }
+
+    svg {
+      font-size: 2rem;
+      filter: invert(58%) sepia(84%) saturate(4941%) hue-rotate(165deg) brightness(100%) contrast(101%) !important;
+      cursor: pointer;
+    }
+  }
+
+}
