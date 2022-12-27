@@ -1,22 +1,21 @@
 .Hero {
-
   &-title {
     display: block;
-    margin: 2rem 0 -1rem .5rem;
-    color: rgba(255,255,255,.6);
+    margin: 2rem 0 -1rem 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
     font-style: italic;
   }
 
   &-wrapper {
     position: relative;
     height: 480px;
-    padding: .5rem;
+    padding: 0.5rem;
     margin: 2rem 0;
     display: grid;
     grid-template-columns: 80% 1fr;
     background-color: $clr-dark;
     border-radius: 4px;
-    grid-gap: .5rem;
+    grid-gap: 0.5rem;
   }
 
   &-primary {
@@ -26,11 +25,14 @@
     .swiper-slide {
       border-radius: 4px;
       overflow: hidden;
+      background-position: bottom;
 
       img {
-        width: 100%;
+        margin: 0 auto;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        border-left: 3px solid $clr-dark;
+        border-right: 3px solid $clr-dark;
       }
     }
 
@@ -41,23 +43,23 @@
       font-size: $fs-regular;
       font-family: $ff-bold;
       background-color: $clr-lightDark;
-      padding: .5rem;
+      padding: 0.5rem;
       margin: 1rem;
       border-radius: $fs-small;
     }
-    
+
     a {
       position: absolute;
       bottom: 0;
       left: 0;
       margin: 1rem;
       background-color: $clr-aquablue;
-      padding: .5rem 1rem;
-      border-radius: .5rem;
-      transition: .2s;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: 0.2s;
 
       &:active {
-        scale: .9;
+        scale: 0.9;
       }
     }
   }
@@ -68,7 +70,7 @@
     & .swiper-wrapper {
       display: grid;
       grid-template-columns: 1fr;
-      grid-gap: .5rem;
+      grid-gap: 0.5rem;
 
       .swiper-slide {
         width: 100% !important;
@@ -79,17 +81,18 @@
     }
 
     &-slider {
+      position: relative;
       display: grid;
       grid-template-columns: 56px 1fr;
       justify-content: center;
       width: 100% !important;
-      padding: .2rem;
+      padding: 0.2rem;
       text-align: left;
-      transition: .2s;
+      transition: 0.2s;
       cursor: pointer;
 
       &:active {
-        scale: .9;
+        scale: 0.9;
       }
 
       .slider-img {
@@ -105,8 +108,72 @@
 
       .slider-text {
         margin: 15px 0 0 5px;
-        font-size: .75rem;
+        font-size: 0.75rem;
         font-family: $ff-bold;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Hero {
+    &-wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 80% 1fr;
+    }
+
+    &-secondary {
+      .swiper-wrapper {
+        & {
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: 1fr;
+        }
+      }
+
+      &-slider {
+        grid-template-columns: 1fr;
+      }
+
+      .slider-img {
+        width: 100% !important;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .slider-text {
+        position: absolute;
+        bottom: 4px;
+        padding: 2px;
+        z-index: 10000;
+        background-color: $clr-lightDark;
+        width: 100%;
+        font-size: calc($fs-small - 0.2rem);
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Hero {
+
+    &-secondary {
+      .swiper-wrapper {
+        & {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .swiper-slide {
+          &:last-of-type {
+            display: none;
+          }
+        }
+      }
+
+      .slider-text {
+        font-family: $ff-regular !important;
+        font-weight: 400 !important;
       }
     }
   }

@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import Slider from "./Slider";
 
 const Main = () => {
-  const [heroData, setHeroData] = useState<[] | null>(null);
+  const [heroData, setHeroData] = useState<[] | null | any>(null);
   const [sliderData, setSliderData] = useState<[] | null>(null);
 
   useEffect(() => {
@@ -12,6 +12,14 @@ const Main = () => {
     fetchData(url, setHeroData);
     fetchData(sliderUrl, setSliderData);
   }, []);
+
+  useEffect(() => {
+    console.log('CHECKED')
+    console.log(heroData, "HERO")
+    // if(heroData.length === 0) {
+    //   console.log('crashed')
+    // }
+  }, [heroData]);
 
   async function fetchData(
     url: string,

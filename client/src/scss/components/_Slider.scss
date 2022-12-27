@@ -21,6 +21,14 @@
     }
   }
 
+  &-slide {
+    transition: .2s;
+
+    &:active {
+      scale: .9;
+    }
+  }
+
   &-img {
     height: 275px;
     border-radius: .5rem;

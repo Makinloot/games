@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,10 +14,25 @@ type Props = {
   [key: string]: any;
 };
 
-const Slider: React.FunctionComponent<Props> = ({ data }) => {
-  const sliderData = data[0].results;
 
-  console.log(sliderData);
+const Slider: React.FunctionComponent<Props> = ({ data }) => {
+  
+  const [slideCount, setSlideCount] = useState<number>(5.2);
+  
+  const sliderData = data[0].results;
+  const shuffled = sliderData.sort(() => 0.5 - Math.random());
+
+  const { width } = document.body.getBoundingClientRect();
+  const slideByWidth = () => {
+    if(width > 1000) return;
+    else if(width < 1000 && width > 650) setSlideCount(4);
+    else if(width < 650 && width > 480) setSlideCount(3);
+    else setSlideCount(1.2)
+  }
+
+  useEffect(() => {
+    slideByWidth();
+  }, []);
 
   return (
     <div className="Slider">
@@ -24,13 +40,13 @@ const Slider: React.FunctionComponent<Props> = ({ data }) => {
         <strong className="Slider-title">Random games</strong>
         <div className="Slider-wrapper">
           <Swiper
-            slidesPerView={5.2}
+            slidesPerView={slideCount}
             spaceBetween={10}
             freeMode={true}
             modules={[FreeMode, Pagination]}
             className="mySwiper"
           >
-            {sliderData.map(
+            {shuffled.map(
               (slide: {
                 background_image: string;
                 id: number;

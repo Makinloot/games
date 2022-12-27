@@ -14,10 +14,12 @@ type Props = {
 };
 
 const Hero: React.FunctionComponent<Props> = ({ data }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  
   const gamesData = data[0].results;
-  console.log(typeof gamesData);
+  const shuffled = gamesData.sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, 5);
 
   return (
     <div className="Hero">
@@ -34,7 +36,7 @@ const Hero: React.FunctionComponent<Props> = ({ data }) => {
             touchRatio={0}
             className="mySwiper2 Hero-primary"
           >
-            {gamesData.map(
+            {selected.map(
               (game: {
                 id: number;
                 background_image: string;
@@ -42,7 +44,7 @@ const Hero: React.FunctionComponent<Props> = ({ data }) => {
               }) => {
                 const { background_image, name, id } = game;
                 return (
-                  <SwiperSlide key={id}>
+                  <SwiperSlide key={id} style={{backgroundImage: `url(${background_image})`}}>
                     <img src={background_image} alt={name} />
                     <h3>{name}</h3>
                     <a href="#">check out</a>
@@ -57,7 +59,7 @@ const Hero: React.FunctionComponent<Props> = ({ data }) => {
             touchRatio={0}
             className="mySwiper Hero-secondary"
           >
-            {gamesData.map(
+            {selected.map(
               (game: {
                 id: number;
                 background_image: string;
