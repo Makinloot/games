@@ -21,52 +21,65 @@ const Hero: React.FunctionComponent<Props> = ({ data }) => {
 
   return (
     <div className="Hero">
-      <Swiper
-        spaceBetween={10}
-        thumbs={{
-          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-        }}
-        modules={[Thumbs]}
-        touchRatio={0}
-        className="mySwiper2 Hero-primary"
-      >
-        {gamesData.map(
-          (game: { id: number; background_image: string; name: string }) => {
-            const { background_image, name } = game;
-            const id = Number(game.id);
-            return (
-              <SwiperSlide key={id}>
-                <img src={background_image} alt={name} />
-                <h3>{name}</h3>
-                <a href="#">check out</a>
-              </SwiperSlide>
-            );
-          }
-        )}
-      </Swiper>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        touchRatio={0}
-        className="mySwiper Hero-secondary"
-      >
-        {gamesData.map(
-          (game: { id: number; background_image: string; name: string }) => {
-            const { background_image, name } = game;
-            const id = Number(game.id);
-            return (
-              <SwiperSlide key={id}>
-                <div className="Hero-secondary-slider">
-                  <div className="slider-img">
+      <div className="container">
+        <strong className="Hero-title">Popular games</strong>
+        <div className="Hero-wrapper">
+          <Swiper
+            spaceBetween={10}
+            thumbs={{
+              swiper:
+                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+            }}
+            modules={[Thumbs]}
+            touchRatio={0}
+            className="mySwiper2 Hero-primary"
+          >
+            {gamesData.map(
+              (game: {
+                id: number;
+                background_image: string;
+                name: string;
+              }) => {
+                const { background_image, name, id } = game;
+                return (
+                  <SwiperSlide key={id}>
                     <img src={background_image} alt={name} />
-                  </div>
-                  <strong className="slider-text">{name}</strong>
-                </div>
-              </SwiperSlide>
-            );
-          }
-        )}
-      </Swiper>
+                    <h3>{name}</h3>
+                    <a href="#">check out</a>
+                  </SwiperSlide>
+                );
+              }
+            )}
+          </Swiper>
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            spaceBetween={10}
+            touchRatio={0}
+            className="mySwiper Hero-secondary"
+          >
+            {gamesData.map(
+              (game: {
+                id: number;
+                background_image: string;
+                name: string;
+              }) => {
+                const { background_image, name } = game;
+                const id = Number(game.id);
+                return (
+                  <SwiperSlide key={id}>
+                    <div className="Hero-secondary-slider">
+                      <div className="slider-img">
+                        <img src={background_image} alt={name} />
+                      </div>
+                      <strong className="slider-text">{name}</strong>
+                    </div>
+                  </SwiperSlide>
+                );
+              }
+            )}
+          </Swiper>
+        </div>
+      </div>
     </div>
   );
 };

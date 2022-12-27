@@ -1,33 +1,38 @@
 import { useState, useEffect, PropsWithChildren } from "react";
 import Hero from "./Hero";
+import Slider from "./Slider";
 
 const Main = () => {
-
   const [heroData, setHeroData] = useState<[] | null>(null);
+  const [sliderData, setSliderData] = useState<[] | null>(null);
 
-  console.log('lmao', heroData)
-  
   useEffect(() => {
-    fetchData();
+    const url = "http://localhost:5000/hero";
+    const sliderUrl = "http://localhost:5000/slider";
+    fetchData(url, setHeroData);
+    fetchData(sliderUrl, setSliderData);
   }, []);
-  
-  async function fetchData() {
-    const url = 'http://localhost:5000/hero'
+
+  async function fetchData(
+    url: string,
+    setter: React.Dispatch<React.SetStateAction<[] | null>>
+  ) {
     const res = await fetch(url);
     const data: [] = await res.json();
 
-    setHeroData(data);
+    setter(data);
   }
 
   return (
     <div className="Main">
-      <div className="container">
-        {heroData &&
+      {(heroData && sliderData) && (
+        <>
           <Hero data={heroData} />
-        }
-      </div>
+          <Slider data={sliderData} />
+        </>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
