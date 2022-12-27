@@ -3,7 +3,7 @@ import Hero from "./Hero";
 
 const Main = () => {
 
-  const [heroData, setHeroData] = useState(null);
+  const [heroData, setHeroData] = useState<[] | null>(null);
 
   console.log('lmao', heroData)
   
@@ -14,7 +14,7 @@ const Main = () => {
   async function fetchData() {
     const url = 'http://localhost:5000/hero'
     const res = await fetch(url);
-    const data = await res.json();
+    const data: [] = await res.json();
 
     setHeroData(data);
   }
