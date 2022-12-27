@@ -14,9 +14,9 @@ let dataArr = [];
 async function getPopularGames() {
 
   const KEY = process.env.RAWG_KEY;
-  const randomNumber = Math.floor(Math.random() * 10) + 1; // generate random number up to 10
+  const randomNumber = Math.floor(Math.random() * 5) + 1; // generate random number up to 10
   try {
-    const url = `https://api.rawg.io/api/games?key=${KEY}&page=${randomNumber}&ordering=-rating&metacritic=70,100`;
+    const url = `https://api.rawg.io/api/games?key=${KEY}&page=${randomNumber}&page_size=5&metacritic=70,100`;
     const resp = await fetch(url);
     const data = await resp.json();
     dataArr.length = 0;

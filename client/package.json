@@ -10,13 +10,16 @@
     "sass": "cd src && sass --watch scss:css --style compressed"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
     "sass": "^1.57.1",
     "swiper": "^8.4.5",
     "swiper-react": "^1.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
