@@ -52,7 +52,7 @@ const Hero: React.FunctionComponent<Props> = ({ data, getId }) => {
                   >
                     <img src={background_image} alt={name} />
                     <h3>{name}</h3>
-                    <a href="#">check out</a>
+                    <a href={`/game/${id}`}>check out</a>
                   </SwiperSlide>
                 );
               }

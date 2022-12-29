@@ -3,9 +3,10 @@
 @import "./assets/utils";
 
 @import "./components/Header";
+@import "./components/Footer";
 @import "./components/Hero";
 @import "./components/Slider";
-@import "./components/Footer";
+@import "./components/Game";
 
 body {
   background-color: $clr-nightblue;
