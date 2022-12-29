@@ -5,7 +5,6 @@ import Slider from "./Slider";
 const Home = () => {
   const [heroData, setHeroData] = useState<[] | null | any>(null);
   const [sliderData, setSliderData] = useState<[] | null>(null);
-  const [id, setId] = useState<number | null>(null);
 
   useEffect(() => {
     const url = "http://localhost:5000/hero";
@@ -26,7 +25,7 @@ const Home = () => {
 
   return (
     <div className="Home">
-      {(heroData && sliderData) && (
+      {heroData && sliderData && (
         <>
           <Hero data={heroData} />
           <Slider data={sliderData} />

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 // swiper react components
 import { Swiper, SwiperSlide } from "swiper/react";
 // swiper styles
@@ -9,19 +9,12 @@ import "swiper/css/thumbs";
 // required swiper modules
 import { Thumbs } from "swiper";
 
-type Props = {
-  [key: string]: any;
-};
-
-const Hero: React.FunctionComponent<Props> = ({ data, getId }) => {
-
+const Hero = ({ data }: { data: any }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  
+
   const gamesData = data[0].results;
   const shuffled = gamesData.sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, 5);
-
-
 
   return (
     <div className="Hero">
@@ -46,9 +39,9 @@ const Hero: React.FunctionComponent<Props> = ({ data, getId }) => {
               }) => {
                 const { background_image, name, id } = game;
                 return (
-                  <SwiperSlide 
-                    key={id} 
-                    style={{backgroundImage: `url(${background_image})`}}
+                  <SwiperSlide
+                    key={id}
+                    style={{ backgroundImage: `url(${background_image})` }}
                   >
                     <img src={background_image} alt={name} />
                     <h3>{name}</h3>

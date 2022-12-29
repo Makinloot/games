@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, MouseEvent, ChangeEvent } from "react";
-import logo from "../logo.png";
+import logo from "../../logo.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const menuRef: any = useRef();
+  const menuRef: {current: any} = useRef();
   const { width } = document.body.getBoundingClientRect();
 
   useEffect(() => {
