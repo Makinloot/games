@@ -16,7 +16,7 @@ async function sliderGames() {
   const randomNumber = Math.floor(Math.random() * 150) + 1; // generate random page number up to 150
   
   try {
-    const url = `https://api.rawg.io/api/games?key=${KEY}&page=${randomNumber}&ordering=-rating&metacritic=70,100`;
+    const url = `https://api.rawg.io/api/games?key=${KEY}&page=${randomNumber}&ordering=-rating&metacritic=70,100&exclude_additions`;
     const resp = await fetch(url);
     const data = await resp.json();
     sliderDataArr.length = 0;

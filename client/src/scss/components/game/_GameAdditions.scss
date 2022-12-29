@@ -9,6 +9,12 @@
     background-color: $clr-dark;
     cursor: pointer;
 
+    &:has(.Game-additions-wrapper.active) {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
     h3 {
       font-family: $ff-bold;
     }
@@ -17,6 +23,7 @@
       position: absolute;
       top: 0.7rem;
       right: 1rem;
+      transition: .3s;
     }
 
     &-wrapper {

@@ -16,7 +16,7 @@ async function getPopularGames() {
   const randomNumber = Math.floor(Math.random() * 10) + 1; // generate random number up to 20
   
   try {
-    const url = `https://api.rawg.io/api/games?key=${KEY}&page=${randomNumber}&page_size=20&metacritic=70,100&dates=2019-01-01,2020-12-31.2021-01-01,2022-12-31`;
+    const url = `https://api.rawg.io/api/games?key=${KEY}&page=${randomNumber}&page_size=20&metacritic=70,100&dates=2019-01-01,2020-12-31.2021-01-01,2022-12-31&exclude_additions=true`;
     const resp = await fetch(url);
     const data = await resp.json();
     dataArr.length = 0;

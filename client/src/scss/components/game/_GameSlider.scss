@@ -19,3 +19,12 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .Game {
+
+    &-slider {
+      order: 2;
+    }
+  }
+}

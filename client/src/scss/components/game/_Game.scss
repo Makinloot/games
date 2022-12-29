@@ -21,3 +21,14 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .Game {
+
+    &-wrapper {
+      grid-template-columns: 100%;
+      grid-template-rows: .4fr .6fr !important;
+      grid-gap: 1rem;
+    }
+  }
+}

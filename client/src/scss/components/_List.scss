@@ -35,3 +35,14 @@
     }
   }
 }
+
+@media (max-width: 700px) {
+  .List {
+
+    &-item {
+      padding: .5rem;
+      flex-direction: column;
+      gap: .5rem;
+    }
+  }
+}

@@ -50,3 +50,33 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .Game {
+
+    &-details {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      order: 1;
+    }
+
+    .details-img {
+      background-color: red;
+      height: 100%;
+      img {
+        height: 100%;
+        background-color: red;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Game {
+
+    &-details {
+      grid-template-columns: 1fr;
+    }
+  }
+}
