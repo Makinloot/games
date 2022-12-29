@@ -1,0 +1,22 @@
+@import "./GameSlider";
+@import "./GameDetails";
+
+.Game {
+  margin: 2rem 0;
+
+  &-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    grid-template-rows: 500px;
+    column-gap: .5rem;
+
+    h2 {
+      position: absolute;
+      top: -25px;
+      z-index: 10000;
+      font-size: $fs-regular;
+      text-transform: capitalize;
+    }
+  }
+}

@@ -2,11 +2,11 @@
 @import "./assets/reset";
 @import "./assets/utils";
 
-@import "./components/Header";
-@import "./components/Footer";
-@import "./components/Hero";
-@import "./components/Slider";
-@import "./components/Game";
+@import "./components/layout/Header";
+@import "./components/layout/Footer";
+@import "./components/home/Hero";
+@import "./components/home/Slider";
+@import "./components/game/Game";
 @import "./components/List";
 
 body {
