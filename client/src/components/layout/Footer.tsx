@@ -1,9 +1,10 @@
-import React, { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 const Footer = () => {
-
+  const [searchValue, setSearchValue] = useState<string | number | null>(null);
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    window.location.href=`/search/${searchValue}`;
   }
 
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
           <div className="Footer-search flex-row">
             <h2>search here</h2>
             <form action="#" onSubmit={handleSubmit}>
-              <input type="text" placeholder="Enter game here" required />
+              <input type="text" placeholder="Enter game here" required onChange={(e) => setSearchValue(e.target.value)} />
               <input type="submit" value="Enter" />
             </form>
           </div>
