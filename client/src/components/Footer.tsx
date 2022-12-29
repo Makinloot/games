@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FormEvent } from "react";
 
 const Footer = () => {
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
   }
 

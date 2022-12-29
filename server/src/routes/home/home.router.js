@@ -1,9 +1,7 @@
-import express from 'express';
-import { httpGetPopularGames } from './home.controller.js';
+import express from "express";
+import { httpGetPopularGames } from "./home.controller.js";
 
 const homeRouter = express.Router();
-homeRouter.get('/', httpGetPopularGames);
+homeRouter.get("/", httpGetPopularGames);
 
-export {
-  homeRouter,
-}
+export { homeRouter };

@@ -1,9 +1,7 @@
-import express from 'express';
-import { httpSliderGames } from './slider.controller.js';
+import express from "express";
+import { httpSliderGames } from "./slider.controller.js";
 
 const sliderRouter = express.Router();
-sliderRouter.get('/', httpSliderGames);
+sliderRouter.get("/", httpSliderGames);
 
-export {
-  sliderRouter,
-}
+export { sliderRouter };

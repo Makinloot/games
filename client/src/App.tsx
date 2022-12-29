@@ -1,15 +1,26 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import Header from "./components/Header";
-import Main from "./components/Main";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Game from './components/Game';
 
 function App() {
 
   return (
-    <div className="App">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path={`/game/:id`} element={<Game />} />
+          <Route path='*' element={<div className='container'>ERROR --</div>} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   )
 }
 

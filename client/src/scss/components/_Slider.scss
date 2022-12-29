@@ -33,6 +33,7 @@
     height: 275px;
     border-radius: .5rem;
     overflow: hidden;
+    pointer-events: none;
 
     img {
       height: 100%;
@@ -45,6 +46,7 @@
     margin: 1rem 0 .5rem;
     justify-content: flex-start;
     align-items: flex-start;
+    pointer-events: none;
 
     h4 {
       font-family: $ff-bold;

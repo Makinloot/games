@@ -15,7 +15,7 @@ type Props = {
 };
 
 
-const Slider: React.FunctionComponent<Props> = ({ data }) => {
+const Slider: React.FunctionComponent<Props> = ({ data, getId }) => {
   
   const [slideCount, setSlideCount] = useState<number>(5.2);
   
@@ -49,7 +49,7 @@ const Slider: React.FunctionComponent<Props> = ({ data }) => {
             {shuffled.map(
               (slide: {
                 background_image: string;
-                id: number;
+                id: string;
                 name: string;
                 rating: number;
                 ratings_count: number;
@@ -65,7 +65,14 @@ const Slider: React.FunctionComponent<Props> = ({ data }) => {
                 } = slide;
 
                 return (
-                  <SwiperSlide className="Slider-slide" key={id}>
+                  <SwiperSlide 
+                    className="Slider-slide"
+                    id={id}
+                    key={id}
+                    onClick={(e) => {
+                      window.location.href = `/game/${id}`;
+                    }}
+                  >
                     <div className="Slider-img">
                       <img src={background_image} alt={name} />
                     </div>
@@ -82,6 +89,7 @@ const Slider: React.FunctionComponent<Props> = ({ data }) => {
                         ratings: {rating} {`(${ratings_count})`}
                       </p>
                     </div>
+                    <input type="hidden" value={id} />
                   </SwiperSlide>
                 );
               }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, MouseEvent } from "react";
+import React, { useState, useEffect, useRef, MouseEvent, ChangeEvent } from "react";
 import logo from "../logo.png";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleClass = (
-      e: React.MouseEvent<Document, MouseEvent | TouchEvent>
+      e: any
     ): void => {
       if (!menuRef.current.contains(e.target)) {
         setOpen(false);

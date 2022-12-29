@@ -2,9 +2,10 @@ import { useState, useEffect, PropsWithChildren } from "react";
 import Hero from "./Hero";
 import Slider from "./Slider";
 
-const Main = () => {
+const Home = () => {
   const [heroData, setHeroData] = useState<[] | null | any>(null);
   const [sliderData, setSliderData] = useState<[] | null>(null);
+  const [id, setId] = useState<number | null>(null);
 
   useEffect(() => {
     const url = "http://localhost:5000/hero";
@@ -12,14 +13,6 @@ const Main = () => {
     fetchData(url, setHeroData);
     fetchData(sliderUrl, setSliderData);
   }, []);
-
-  useEffect(() => {
-    console.log('CHECKED')
-    console.log(heroData, "HERO")
-    // if(heroData.length === 0) {
-    //   console.log('crashed')
-    // }
-  }, [heroData]);
 
   async function fetchData(
     url: string,
@@ -32,7 +25,7 @@ const Main = () => {
   }
 
   return (
-    <div className="Main">
+    <div className="Home">
       {(heroData && sliderData) && (
         <>
           <Hero data={heroData} />
@@ -43,4 +36,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
