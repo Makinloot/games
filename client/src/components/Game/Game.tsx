@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import GameSlider from "./GameSlider";
 import GameDetails from "./GameDetails";
 import GameAdditions from "./GameAdditions";
+import Loading from "../Loading";
 
 const Game = () => {
   const { id } = useParams();
@@ -41,11 +42,7 @@ const Game = () => {
       </div>
     );
   } else {
-    return (
-      <div className="Loading">
-        <div className="container">Loading...</div>
-      </div>
-    );
+    return <Loading />;
   }
 };
 

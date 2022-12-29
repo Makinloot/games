@@ -1,6 +1,7 @@
 import { useState, useEffect, PropsWithChildren } from "react";
 import Hero from "./Hero";
 import Slider from "./Slider";
+import Loading from "../Loading";
 
 const Home = () => {
   const [heroData, setHeroData] = useState<[] | null | any>(null);
@@ -23,16 +24,14 @@ const Home = () => {
     setter(data);
   }
 
-  return (
-    <div className="Home">
-      {heroData && sliderData && (
-        <>
-          <Hero data={heroData} />
-          <Slider data={sliderData} />
-        </>
-      )}
-    </div>
-  );
+  if (heroData && sliderData) {
+    return (
+      <div className="Home">
+        <Hero data={heroData} />
+        <Slider data={sliderData} />
+      </div>
+    );
+  } else return <Loading />;
 };
 
 export default Home;
