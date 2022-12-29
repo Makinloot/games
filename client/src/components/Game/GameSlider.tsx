@@ -18,7 +18,7 @@ const GameSlider = ({ trailerData, sliderData }: propsTypes) => {
       <Swiper
         navigation={true}
         modules={[Navigation]}
-        spaceBetween={100}
+        spaceBetween={50}
         className="mySwiper"
       >
         {trailerData &&

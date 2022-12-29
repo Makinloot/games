@@ -4,6 +4,7 @@ import cors from 'cors';
 import { homeRouter } from './routes/home/home.router.js';
 import { sliderRouter } from './routes/slider/slider.router.js';
 import { gameRouter } from './routes/game/game.router.js';
+import { searchRouter } from './routes/search/search.router.js';
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use('/hero', homeRouter);
 app.use('/slider', sliderRouter);
 app.use('/game', gameRouter);
+app.use('/search', searchRouter);
 
 export {
     app,

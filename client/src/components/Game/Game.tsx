@@ -10,11 +10,11 @@ const Game = () => {
   const [gameData, setGameData] = useState<any>(null);
 
   useEffect(() => {
-    fetchGame();
+    fetchGame(id);
   }, []);
 
-  async function fetchGame() {
-    const url = `http://localhost:5000/game/${id}`;
+  async function fetchGame(gameId: number | string | undefined) {
+    const url = `http://localhost:5000/game/${gameId}`;
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
