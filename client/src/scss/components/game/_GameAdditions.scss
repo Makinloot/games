@@ -4,7 +4,7 @@
     display: inline-block;
     width: 400px;
     max-width: 100%;
-    margin: 1rem 0 2rem 0;
+    margin: 0 0 2rem;
     padding: 0.5rem;
     background-color: $clr-dark;
     cursor: pointer;
@@ -36,7 +36,7 @@
 
     a {
       display: block;
-      margin-top: 4px;
+      margin-top: 8px;
       padding: 0.2rem 0.3rem;
       background-color: $clr-dark;
       font-size: calc($fs-small - 2px);

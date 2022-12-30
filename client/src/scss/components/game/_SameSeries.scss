@@ -1,0 +1,50 @@
+.Series{
+  margin: 2rem 0;
+  user-select: none;
+
+  &-title {
+    display: block;
+    margin: .5rem 0;
+    color: rgba(255,255,255,.6);
+    font-style: italic;
+  }
+
+  &-swiper {
+    padding: .5rem;
+    background-color: $clr-dark;
+
+    .swiper-pagination {
+      bottom: .5rem;
+      // position: static;
+      // margin-top: 1rem;
+    }
+  }
+
+  .slide {
+    cursor: pointer;
+    padding-bottom: 2rem;
+  }
+
+  .img-container {
+    position: relative;
+    height: 120px;
+
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  h5 {
+    margin: 5px 0 0;
+    font-size: calc($fs-small - 2px);
+  }
+}
+
+@media (max-width: 480px) {
+  .Series {
+    margin: -2rem 0 0;
+  }
+}

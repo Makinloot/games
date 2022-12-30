@@ -1,4 +1,4 @@
-type propsTypes = {
+export type propsTypes = {
   data: {
     name: string;
     background_image: string;
@@ -23,7 +23,7 @@ type propsTypes = {
   };
 };
 
-const GameDetails = ({ data }: propsTypes): any => {
+const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
   const {
     name,
     background_image,
@@ -45,7 +45,7 @@ const GameDetails = ({ data }: propsTypes): any => {
             <div className="detail-tag">all reviews: {reviews_count}</div>
             {data.ratings.map(rating => {
               const { title, percent } = rating;
-              return <div className="detail-tag">mostly {title} <span>{percent}</span></div>
+              return <div className="detail-tag">mostly {title} <span>{percent}%</span></div>
             }).slice(0, 1)}
           </div>
           {/* game release */}
@@ -73,45 +73,6 @@ const GameDetails = ({ data }: propsTypes): any => {
       </div>
     );
   }
-  // const { title, percent } = data.ratings[0];
-  // return (
-  //   <div className="Game-details flex-col">
-  //     {/* game image */}
-  //     <div className="details-img">
-  //       <img src={background_image} alt={name} />
-  //     </div>
-  //     <div className="details-text flex-col">
-  //       <div className="reviews">
-  //         <div className="detail-tag">all reviews: {reviews_count}</div>
-  //         <div className="detail-tag">
-  //           {/* mostly: {title} <span>{percent}%</span> */}
-  //         </div>
-  //       </div>
-  //       {/* game release */}
-  //       <div className="release">
-  //         <div className="detail-tag">released: {released}</div>
-  //       </div>
-  //       {/* game publishers */}
-  //       <div className="publishers">
-  //         <div className="detail-tag">
-  //           publishers: {publishers[0] && publishers[0].name}{" "}
-  //           {publishers[1] && `,${publishers[1].name}`}
-  //         </div>
-  //       </div>
-  //       {/* game genres */}
-  //       <div className="genres">
-  //         <div className="detail-tag">
-  //           genres:{" "}
-  //           {genres.map((genre: { name: string }) => genre.name).join(", ")}
-  //         </div>
-  //       </div>
-  //       {/* game description */}
-  //       <div className="description">
-  //         <p>{description_raw}</p>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default GameDetails;

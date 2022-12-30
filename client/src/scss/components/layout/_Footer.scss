@@ -1,5 +1,5 @@
 .Footer {
-  margin: 4rem 0 5rem 2rem;
+  margin: 4rem 0 5rem;
   &-wrapper {
     position: relative;
     padding: 2rem;
@@ -16,7 +16,7 @@
     form {
       position: relative;
       display: grid;
-      grid-template-columns: 80% 1fr;
+      grid-template-columns: 70% 30%;
       max-width: 100%;
     }
 

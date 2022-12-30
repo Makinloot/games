@@ -15,7 +15,7 @@ type Props = {
 };
 
 
-const Slider: React.FunctionComponent<Props> = ({ data, getId }) => {
+const Slider: React.FunctionComponent<Props> = ({ data }) => {
   
   const [slideCount, setSlideCount] = useState<number>(5.2);
   

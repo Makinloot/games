@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-const GameAdditions = ({ additionsData }: any) => {
+const GameAdditions = ({ additionsData }: {
+  additionsData: []
+}) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (

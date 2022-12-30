@@ -5,6 +5,7 @@ import GameSlider from "./GameSlider";
 import GameDetails from "./GameDetails";
 import GameAdditions from "./GameAdditions";
 import Loading from "../Loading";
+import SameSeries from "./SameSeries";
 
 const Game = () => {
   const { id } = useParams();
@@ -28,6 +29,9 @@ const Game = () => {
     const { results }: { results: [] } = gameData.screenshotData[0];
     const trailer: [] = gameData.trailerData[0].results;
     const additions: [] = gameData.additionsData[0].results;
+    const sameSeries = gameData.sameSeries[0].results;
+
+    console.log('same seires',sameSeries)
 
     return (
       <div className="Game">
@@ -37,6 +41,7 @@ const Game = () => {
             <GameSlider trailerData={trailer} sliderData={results} />
             <GameDetails data={data} />
           </div>
+          <SameSeries data={sameSeries} />
           {additions.length > 0 ? <GameAdditions additionsData={additions} /> : null}
         </div>
       </div>

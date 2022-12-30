@@ -69,7 +69,7 @@ async function gameAdditions(id) {
 
 // list of games that are part of same series
 async function gamesOfSameSeries(id) {
-  const url = `https://api.rawg.io/api/games/${id}/game-series?key=${KEY}`;
+  const url = `https://api.rawg.io/api/games/${id}/game-series?key=${KEY}&page_size=20`;
   const res = await fetch(url);
   const data = await res.json();
   sameSeries.length = 0;
