@@ -31,7 +31,7 @@ const Header = () => {
           </a>
           <nav className="Header-menu">
             <a href="/">Home</a>
-            <a href="#">Browse</a>
+            <a href="/browse">Browse</a>
             <a href="#">Contact</a>
           </nav>
           <div className="Header-burger">

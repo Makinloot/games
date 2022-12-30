@@ -4,6 +4,11 @@ export type propsTypes = {
     background_image: string;
     reviews_count: number;
     released: number;
+    developers: [
+      {
+        name: string;
+      }
+    ];
     publishers: [
       {
         name: string;
@@ -30,6 +35,7 @@ const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
     reviews_count,
     released,
     publishers,
+    developers,
     genres,
     description_raw,
   } = data;
@@ -55,7 +61,10 @@ const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
           {/* game publishers */}
           <div className="publishers">
             <div className="detail-tag">
-              publishers: {publishers.map(publisher => publisher.name ).join(', ')}
+              developers: {developers.map(developer => developer.name).join(', ')}
+            </div>
+            <div className="detail-tag">
+              publishers: {publishers.map(publisher => publisher.name).join(', ')}
             </div>
           </div>
           {/* game genres */}

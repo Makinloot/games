@@ -9,7 +9,16 @@
 @import "./components/game/Game";
 @import "./components/List";
 @import "./components/Loading";
+@import "./components/Error";
 
 body {
   background-color: $clr-nightblue;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.Error {
+  
 }
