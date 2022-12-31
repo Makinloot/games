@@ -11,9 +11,9 @@ import { FreeMode, Pagination } from "swiper";
 const handleWidth = () => {
   const { width } = document.body.getBoundingClientRect();
   if (width > 900) return 5.85;
-  else if (width < 900 && width > 700) return 4;
-  else if (width < 700 && width > 480) return 3.4;
-  else if (width < 480 && width > 380) return 2;
+  else if (width <= 900 && width > 700) return 4;
+  else if (width <= 700 && width > 480) return 3.4;
+  else if (width <= 480 && width > 380) return 2;
   else return 1.5;
 };
 
@@ -29,9 +29,6 @@ const SameSeries = ({ data }: {
             slidesPerView={handleWidth()}
             spaceBetween={10}
             freeMode={true}
-            pagination={{
-              clickable: true,
-            }}
             modules={[FreeMode, Pagination]}
             className="mySwiper Series-swiper"
           >
@@ -43,11 +40,10 @@ const SameSeries = ({ data }: {
               const { background_image, name, id } = slide;
               return (
                 <SwiperSlide className="slide" key={id}>
-                  <a href={"/game/" + id}>
+                  <a href={"/game/" + id} title={name}>
                     <div className="img-container">
                       <img src={background_image} alt={name} />
                     </div>
-                    <h5>{name}</h5>
                   </a>
                 </SwiperSlide>
               );

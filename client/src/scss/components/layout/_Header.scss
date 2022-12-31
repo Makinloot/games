@@ -27,6 +27,10 @@
     position: relative;
     background: $filter-aquablue;
 
+    &:has(input[type=text]:focus) .search-results {
+      opacity: 1;
+    }
+
     input,
     button {
       height: 100%;
@@ -49,6 +53,8 @@
       width: 200%;
       align-items: flex-start;
       background: $filter-steelblue;
+      opacity: 0;
+      transition: .3s;
 
       .result {
         position: relative;

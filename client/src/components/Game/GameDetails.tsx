@@ -1,5 +1,6 @@
 export type propsTypes = {
   data: {
+    id: number;
     name: string;
     background_image: string;
     reviews_count: number;
@@ -30,6 +31,7 @@ export type propsTypes = {
 
 const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
   const {
+    id,
     name,
     background_image,
     reviews_count,
@@ -51,7 +53,7 @@ const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
             <div className="detail-tag">all reviews: {reviews_count}</div>
             {data.ratings.map(rating => {
               const { title, percent } = rating;
-              return <div className="detail-tag">mostly {title} <span>{percent}%</span></div>
+              return <div className="detail-tag" key={id}>mostly {title} <span>{percent}%</span></div>
             }).slice(0, 1)}
           </div>
           {/* game release */}

@@ -15,7 +15,7 @@ const GameAdditions = ({ additionsData }: {
         >
           {additionsData.map((item: { name: string; id: number }) => {
             const { name, id } = item;
-            return <a href={`/game/${id}`}>{name}</a>;
+            return <a href={`/game/${id}`} key={id}>{name}</a>;
           })}
         </div>
       </div>

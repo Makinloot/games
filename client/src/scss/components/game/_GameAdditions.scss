@@ -22,6 +22,10 @@
 
     h3 {
       font-family: $ff-bold;
+
+      @media (max-width: 480px) {
+        font-size: 1rem;
+      }
     }
 
     svg {
