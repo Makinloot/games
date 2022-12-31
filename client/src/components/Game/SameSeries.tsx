@@ -40,7 +40,6 @@ const SameSeries = ({ data }: {
               name: string;
               id: number;
             }) => {
-              console.log('im slide', slide);
               const { background_image, name, id } = slide;
               return (
                 <SwiperSlide className="slide" key={id}>

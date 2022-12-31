@@ -1,23 +1,9 @@
-import { FormEvent, useState } from "react";
-
 const Footer = () => {
-  const [searchValue, setSearchValue] = useState<string | number | null>(null);
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    window.location.href=`/search/${searchValue}`;
-  }
 
   return (
     <div className="Footer">
       <div className="container">
         <div className="Footer-wrapper">
-          <div className="Footer-search flex-row">
-            <h2>search here</h2>
-            <form action="#" onSubmit={handleSubmit}>
-              <input type="text" placeholder="Enter game here" required onChange={(e) => setSearchValue(e.target.value)} />
-              <input type="submit" value="Enter" />
-            </form>
-          </div>
           <div className="Footer-socials flex-row">
             <nav className="Footer-menu">
               <a className="footer-link" href="#">home</a>

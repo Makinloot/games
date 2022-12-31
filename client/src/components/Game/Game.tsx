@@ -19,7 +19,6 @@ const Game = () => {
     const url = `http://localhost:5000/game/${gameId}`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
     setGameData(data);
   }
 
@@ -30,8 +29,6 @@ const Game = () => {
     const trailer: [] = gameData.trailerData[0].results;
     const additions: [] = gameData.additionsData[0].results;
     const sameSeries = gameData.sameSeries[0].results;
-
-    console.log('same seires',sameSeries)
 
     return (
       <div className="Game">

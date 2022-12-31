@@ -11,7 +11,6 @@ import { Thumbs } from "swiper";
 import { gameDataType } from "../../typesDesc";
 
 const Hero = ({ data }: gameDataType[] | any) => {
-  console.log(data)
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   const gamesData = data[0].results;

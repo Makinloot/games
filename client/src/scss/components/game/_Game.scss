@@ -12,10 +12,13 @@
     grid-template-columns: 70% 1fr;
     grid-template-rows: 500px;
     column-gap: .5rem;
+    padding: .5rem;
+    background: $filter-nightblue;
+    border-radius: 4px;
 
     h2 {
       position: absolute;
-      top: -25px;
+      top: -40px;
       z-index: 10000;
       font-size: $fs-regular;
       text-transform: capitalize;
@@ -28,8 +31,17 @@
 
     &-wrapper {
       grid-template-columns: 100%;
-      grid-template-rows: .4fr .6fr !important;
+      grid-template-rows: .4fr .6fr;
       grid-gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Game {
+
+    &-wrapper {
+      grid-template-rows: .6fr .4fr;
     }
   }
 }

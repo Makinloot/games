@@ -10,3 +10,7 @@ $clr-aquablue: #0061fd;
 $clr-nightblue: #0e1f30;
 $clr-dark: #2f2f2f;
 $clr-lightDark: rgba(82, 82, 82, 0.507);
+
+$filter-nightblue: linear-gradient(90deg, rgba(2,57,96,1) 24%, rgba(9,27,57,1) 100%, rgba(0,212,255,0) 100%, rgba(0,198,241,0) 100%);
+$filter-aquablue: linear-gradient(to right, #316282, #31678b, #316d94, #30729d, #3078a6);
+$filter-steelblue: linear-gradient(to right top, #545660, #4a4f5a, #404855, #36414f, #2b3a49);

@@ -11,12 +11,11 @@
 
   &-swiper {
     padding: .5rem;
-    background-color: $clr-dark;
+    background: $filter-nightblue;
+    border-radius: 4px;
 
     .swiper-pagination {
       bottom: .5rem;
-      // position: static;
-      // margin-top: 1rem;
     }
   }
 
@@ -40,11 +39,5 @@
   h5 {
     margin: 5px 0 0;
     font-size: calc($fs-small - 2px);
-  }
-}
-
-@media (max-width: 480px) {
-  .Series {
-    margin: -2rem 0 0;
   }
 }

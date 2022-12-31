@@ -17,6 +17,17 @@
       width: 100%;
       object-fit: cover;
     }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      
+      &::after {
+        padding: .5rem .3rem;
+        font-size: 1.5rem;
+        background-color: $clr-dark;
+        border-radius: 4px;
+      }
+    }
   }
 }
 
@@ -25,6 +36,14 @@
 
     &-slider {
       order: 2;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      
+      &::after {
+        font-size: 1rem;
+      }
     }
   }
 }

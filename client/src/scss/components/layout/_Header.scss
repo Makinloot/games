@@ -3,10 +3,15 @@
 
   &-wrapper {
     justify-content: space-between;
+    padding: 0.5rem;
+    background: rgb(2, 57, 96);
+    background: $filter-nightblue;
+    border-radius: 4px;
   }
 
   &-menu {
     font-size: $fs-regular;
+    font-family: $ff-bold;
 
     a {
       margin-right: 20px;
@@ -18,8 +23,77 @@
     }
   }
 
-  &-burger {
+  &-search {
     position: relative;
+    background: $filter-aquablue;
+
+    input,
+    button {
+      height: 100%;
+      border: none;
+      outline: none;
+      padding: 0.3rem;
+      background-color: transparent;
+      border-radius: 4px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .search-results {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 10px);
+      z-index: 100000;
+      width: 200%;
+      align-items: flex-start;
+      background: $filter-steelblue;
+
+      .result {
+        position: relative;
+        display: grid;
+        grid-template-columns: 130px 60%;
+        grid-template-rows: 1fr;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem;
+        padding: 0.5rem 0;
+        justify-content: flex-start;
+        gap: 1rem;
+        width: 100%;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 1px;
+          width: 95%;
+          background-color: black;
+        }
+
+        &:hover {
+          h4 {
+            color: #ccc;
+          }
+        }
+
+        img {
+          width: 130px;
+          height: 60px;
+          object-fit: cover;
+        }
+
+        h4 {
+          font-weight: 400;
+          font-size: $fs-small;
+        }
+      }
+    }
+  }
+
+  &-burger {
     display: none;
 
     &:has(.burger-menu.active) {
@@ -31,19 +105,16 @@
     }
 
     .burger-menu {
-      position: relative;
       gap: 5px;
 
       &.active ~ .burger-menu-content {
-        top: 30px;
-        transition: 0.3s;
+        opacity: 1;
       }
 
       &.active > div {
         & {
           position: absolute;
-          top: -10px;
-          right: -.5px;
+          right: 1.5rem;
           transform: rotate(45deg);
 
           &:nth-of-type(2) {
@@ -52,31 +123,32 @@
 
           &:nth-of-type(3) {
             transform: rotate(-45deg);
-            top: -10px;
-            right: 0;
+            right: 1.5rem;
           }
         }
       }
 
       div {
-        width: 50px;
-        height: 4px;
+        width: 30px;
+        height: 2px;
         border-radius: 4px;
         background-color: $clr-white;
         pointer-events: none;
-        transition: .2s;
+        transition: 0.2s;
       }
     }
 
     .burger-menu-content {
+      display: block;
       position: absolute;
-      top: -200px;
-      right: -1rem;
+      right: 1rem;
+      top: 80px;
       z-index: 10000000;
-      width: 100vw;
+      width: 50%;
       padding: 1rem;
-      background-color: $clr-dark;
-      transition: 0.3s;
+      background: $filter-nightblue;
+      opacity: 0;
+      transition: 0.5s;
 
       a {
         display: block;
@@ -90,13 +162,25 @@
 
 @media (max-width: 480px) {
   .Header {
-
     &-menu {
       display: none;
     }
 
     &-burger {
       display: block;
+    }
+
+    &-search {
+      .search-results {
+        left: -0.5rem;
+        max-width: 90vw;
+
+        .result {
+          display: flex !important;
+          flex-wrap: wrap;
+          padding-right: 1rem;
+        }
+      }
     }
   }
 }

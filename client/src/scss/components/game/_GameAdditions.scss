@@ -2,11 +2,12 @@
   &-additions {
     position: relative;
     display: inline-block;
-    width: 400px;
+    width: 100%;
     max-width: 100%;
     margin: 0 0 2rem;
     padding: 0.5rem;
-    background-color: $clr-dark;
+    background: $filter-nightblue;
+    border-radius: 4px;
     cursor: pointer;
 
     &:has(.Game-additions-wrapper.active) {
