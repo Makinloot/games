@@ -1,5 +1,6 @@
 import Search from "./Search";
 import Burger from "./Burger";
+import logo from "../../../logo.png";
 
 const Header = () => {
 

@@ -55,7 +55,7 @@ const Search = () => {
                     </a>
                   );
                 }
-              ).slice(0, 5)
+              ).slice(0, 4)
             : 
             ""
         }
