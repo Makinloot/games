@@ -4,7 +4,7 @@ import SameSeriesSlider from "./SameSeriesSlider";
 const SameSeries = ({ data }: { data: [] }) => {
   const { width } = document.body.getBoundingClientRect();
 
-  if (data.length > 0 && width >= 1024) {
+  if (data && data.length > 0 && width >= 1024) {
     return (
       <>
         {data.length > 0 && width >= 1024 ? (

@@ -49,7 +49,7 @@ const GameSlider = ({ trailerData, sliderData }: {
               </SwiperSlide>
             );
           })}
-        {sliderData.map((result: { image: string }) => {
+        {sliderData && sliderData.map((result: { image: string }) => {
           const { image } = result;
           return (
             <SwiperSlide key={uniqueKey()}>

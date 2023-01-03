@@ -11,7 +11,7 @@ import { IGamesData } from "../../dataTypes";
 
 const Game = (): JSX.Element => {
   const { id } = useParams();
-  const [gameData, setGameData] = useState<IGamesData | null>(null)
+  const [gameData, setGameData] = useState<IGamesData | null>(null);
 
   useEffect(() => {
     fetchGame(id);
@@ -24,7 +24,6 @@ const Game = (): JSX.Element => {
     setGameData(data);
   }
 
-  
   if (gameData) {
     const { data } = gameData;
     const { name } = data;
@@ -42,7 +41,9 @@ const Game = (): JSX.Element => {
             <GameDetails data={data} />
           </div>
           <SameSeries data={sameSeries} />
-          {additions.length > 0 ? <GameAdditions additionsData={additions} /> : null}
+          {additions && additions.length > 0 ? (
+            <GameAdditions additionsData={additions} />
+          ) : null}
         </div>
       </div>
     );

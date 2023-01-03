@@ -42,7 +42,7 @@ const SameSeriesDesktop = ({ data }: { data: IResults[] }) => {
                       </div>
                     </div>
                     <div className="hover-details-genres">
-                      <p>genres:</p>
+                      <p>tags:</p>
                       <div className="genres-wrapper flex-row">
                         {game.genres.map(genre => <div className="genre" key={uniqueKey()}>{genre.name}</div> )}
                         {game.tags.map(tag => <div className="genre" key={uniqueKey()}>{tag.name}</div> )}

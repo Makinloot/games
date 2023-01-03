@@ -38,7 +38,7 @@ const GameDetails = ({ data }: { data: IGameData }): JSX.Element => {
           <div className="genres">
             <div className="detail-tag">
               <span className="tag-title">genres: </span>{" "}
-              {genres.map((genre: { name: string }) => genre.name).join(", ")}
+              {genres && genres.map((genre: { name: string }) => genre.name).join(", ")}
             </div>
           </div>
           {/* game reviews */}
@@ -47,7 +47,7 @@ const GameDetails = ({ data }: { data: IGameData }): JSX.Element => {
               {" "}
               <span className="tag-title">all reviews: </span> {reviews_count}
             </div>
-            {data.ratings
+            {data.ratings && data.ratings
               .map((rating) => {
                 const { title, percent } = rating;
                 return (

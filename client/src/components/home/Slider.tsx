@@ -54,7 +54,7 @@ const Slider = ({ data }: { data: IResults[] }): JSX.Element => {
                   id={JSON.stringify(id)}
                   key={id}
                   onClick={(e) => {
-                    window.location.href = `/game/${id}` + id;
+                    window.location.href = `/game/${id}`;
                   }}
                 >
                   <div className="Slider-img">

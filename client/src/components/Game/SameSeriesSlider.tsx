@@ -25,7 +25,7 @@ const SameSeriesSlider = ({ data }: { data: IResults[] }) => {
     <>
       <strong className="Series-title">Games from same series</strong>
       <div className="Series-slider">
-        {data.length > 0 && width < 1024 ? (
+        {data && data.length > 0 && width < 1024 ? (
           <Swiper
             slidesPerView={handleWidth()}
             spaceBetween={10}

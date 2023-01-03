@@ -29,6 +29,7 @@
 
     &:has(input[type=text]:focus) .search-results {
       opacity: 1;
+      pointer-events: all;
     }
 
     input,
@@ -54,6 +55,7 @@
       align-items: flex-start;
       background: $filter-steelblue;
       opacity: 0;
+      pointer-events: none;
       transition: .3s;
 
       .result {

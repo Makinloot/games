@@ -10,10 +10,10 @@ dotenv.config({ path: path.join(__dirname, "../../", ".env") });
 
 let sliderDataArr = [];
 
-// fetch games from page 1 to 150 and send random one to user
+// fetch games from page 1 to 50 and send random one to user
 async function sliderGames() {
   const KEY = process.env.RAWG_KEY;
-  const randomNumber = Math.floor(Math.random() * 150) + 1; // generate random page number up to 150
+  const randomNumber = Math.floor(Math.random() * 50) + 1; // generate random page number up to 50
   
   try {
     const url = `https://api.rawg.io/api/games?key=${KEY}&page=${randomNumber}&ordering=-rating&metacritic=70,100&exclude_additions`;
