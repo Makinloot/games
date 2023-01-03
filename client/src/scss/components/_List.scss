@@ -1,9 +1,18 @@
 .List {  
+
+  &-count {
+    margin: .5rem 0;
+    padding: .5rem;
+    border-radius: 4px;
+    background: $filter-steelblue;
+    font-size: $fs-small;
+    color: rgb(255, 254, 213);
+  }
+
   &-wrapper {
     justify-content: flex-start;
     background: $filter-nightblue;
     gap: 1rem;
-    // padding: .5rem;
     padding: 0 .5rem;
     border-radius: 4px;
   }

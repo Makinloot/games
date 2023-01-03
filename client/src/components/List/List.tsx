@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { IGameListResults } from "../../dataTypes";
 
 const List = () => {
   const { name } = useParams();
-  const [gameData, setGameData] = useState<any>(null);
+  const [gameData, setGameData] = useState<IGameListResults | null>(null);
+  console.log("loil", gameData);
 
   useEffect(() => {
     fetchGame(name);
@@ -24,34 +26,26 @@ const List = () => {
     setGameData(data);
   }
 
-  console.log(gameData);
-
   if (gameData) {
-    const { results } = gameData;
+    const { results, count } = gameData;
     return (
       <div className="List">
         <div className="container">
+          <div className="List-count">{count} results match your search.</div>
           <div className="List-wrapper flex-col">
-            {results.map((result: {
-              name: string;
-              background_image: string;
-              released: number;
-              id: number;
-            }) => {
+            {results.map((result) => {
               const { name, background_image, released, id } = result;
               return (
-                <a href={`/game/${id}`} className="List-item flex-row">
+                <a href={`/game/${id}`} className="List-item flex-row" key={id}>
                   <div className="list-image">
                     <img src={background_image} alt={name} />
                   </div>
                   <div className="list-title">
                     <h3>{name}</h3>
                   </div>
-                  <div className="list-date">
-                    {released}
-                  </div>
+                  <div className="list-date">{released}</div>
                 </a>
-              )
+              );
             })}
           </div>
         </div>
@@ -59,13 +53,7 @@ const List = () => {
     );
   }
 
-  return (
-    <div className="List">
-      <div className="container">
-        <div className="List-wrapper"></div>
-      </div>
-    </div>
-  );
+  return null;
 };
 
 export default List;

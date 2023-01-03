@@ -7,9 +7,11 @@ import GameAdditions from "./GameAdditions";
 import Loading from "../Loading";
 import SameSeries from "./SameSeries";
 
-const Game = () => {
+import { IGamesData } from "../../dataTypes";
+
+const Game = (): JSX.Element => {
   const { id } = useParams();
-  const [gameData, setGameData] = useState<any>(null);
+  const [gameData, setGameData] = useState<IGamesData | null>(null)
 
   useEffect(() => {
     fetchGame(id);
@@ -25,9 +27,9 @@ const Game = () => {
   if (gameData) {
     const { data } = gameData;
     const { name } = data;
-    const { results }: { results: [] } = gameData.screenshotData[0];
-    const trailer: [] = gameData.trailerData[0].results;
-    const additions: [] = gameData.additionsData[0].results;
+    const { results } = gameData.screenshotData[0];
+    const trailer = gameData.trailerData[0].results;
+    const additions = gameData.additionsData[0].results;
     const sameSeries = gameData.sameSeries[0].results;
 
     return (

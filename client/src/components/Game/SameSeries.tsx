@@ -1,58 +1,20 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import SameSeriesDesktop from "./SameSeriesDesktop";
+import SameSeriesSlider from "./SameSeriesSlider";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-
-import { FreeMode, Pagination } from "swiper";
-
-const handleWidth = () => {
+const SameSeries = ({ data }: { data: [] }) => {
   const { width } = document.body.getBoundingClientRect();
-  if (width > 900) return 5.85;
-  else if (width <= 900 && width > 700) return 4;
-  else if (width <= 700 && width > 480) return 3.4;
-  else if (width <= 480 && width > 380) return 2;
-  else return 1.5;
-};
 
-const SameSeries = ({ data }: {
-  data: []
-}) => {
-  return (
-    <>
-      {data.length > 0 ? (
-        <div className="Series">
-          <strong className="Series-title">Games from same series</strong>
-          <Swiper
-            slidesPerView={handleWidth()}
-            spaceBetween={10}
-            freeMode={true}
-            modules={[FreeMode, Pagination]}
-            className="mySwiper Series-swiper"
-          >
-            {data.map((slide: {
-              background_image: string;
-              name: string;
-              id: number;
-            }) => {
-              const { background_image, name, id } = slide;
-              return (
-                <SwiperSlide className="slide" key={id}>
-                  <a href={"/game/" + id} title={name}>
-                    <div className="img-container">
-                      <img src={background_image} alt={name} />
-                    </div>
-                  </a>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
-      ) : null}
-    </>
-  );
+  if (data.length > 0 && width >= 1024) {
+    return (
+      <>
+        {data.length > 0 && width >= 1024 ? (
+          <SameSeriesDesktop data={data} />
+        ) : null}
+      </>
+    );
+  }
+
+  return <SameSeriesSlider data={data} />;
 };
 
 export default SameSeries;

@@ -8,13 +8,13 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 // required swiper modules
 import { Thumbs } from "swiper";
-import { gameDataType } from "../../typesDesc";
+import { IResults } from "../../dataTypes";
 
-const Hero = ({ data }: gameDataType[] | any) => {
+const Hero = ({ data }: { data: IResults[] }): JSX.Element => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
-  const gamesData = data[0].results;
-  const shuffled = gamesData.sort(() => 0.5 - Math.random());
+  // display results randomly in slider & pick first five elements
+  const shuffled = data.sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, 5);
 
   return (

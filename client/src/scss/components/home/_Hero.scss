@@ -69,7 +69,6 @@
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(5, 1fr);
-      grid-gap: 0.5rem;
 
       .swiper-slide {
         width: 100% !important;
@@ -142,13 +141,7 @@
       }
 
       .slider-text {
-        position: absolute;
-        bottom: 4px;
-        padding: 2px;
-        z-index: 10000;
-        background-color: $clr-dark;
-        width: 100%;
-        font-size: calc($fs-small - 0.2rem);
+        display: none;
       }
     }
   }

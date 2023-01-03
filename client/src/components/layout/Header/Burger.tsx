@@ -2,12 +2,12 @@ import { useState, useRef, useEffect } from "react";
 
 const Burger = () => {
   const [open, setOpen] = useState(false);
-  const menuRef: { current: any } = useRef();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // close burger menu if clicked outside burger
   useEffect(() => {
-    const handleClass = (e: any): void => {
-      if (!menuRef.current.contains(e.target)) setOpen(false)
+    const handleClass = (e: MouseEvent | any): void => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) setOpen(false)
     };
 
     document.addEventListener("mousedown", handleClass);

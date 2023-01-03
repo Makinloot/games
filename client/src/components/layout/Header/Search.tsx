@@ -16,7 +16,7 @@ const Search = () => {
   // send post request to fetch search results
   const fetchSearch = async (value: string) => {
     const searchValue = {
-      name: value || 'stringthatdoesntmeananything' 
+      name: value || 'stringThatPreventsDisplayingResultsWhileSearchIsEmpty' 
     }
     const options = {
       method: 'POST',

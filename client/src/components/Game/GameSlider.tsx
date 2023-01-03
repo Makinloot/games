@@ -3,16 +3,33 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-type propsTypes = {
-  trailerData: [];
-  sliderData: [];
-};
+interface ITrailer {
+  data: {
+    480: string;
+    max: string;
+  }
+  id: number;
+  name: string;
+  preview: string;
+}
 
-const uniqueKey = (): number => {
-  return Math.random() * Math.random() * Math.random();
-};
+interface ISlider {
+  height: number;
+  id: number;
+  image: string;
+  is_deleted: boolean;
+  width: number;
+}
 
-const GameSlider = ({ trailerData, sliderData }: propsTypes) => {
+const GameSlider = ({ trailerData, sliderData }: {
+  trailerData: ITrailer[],
+  sliderData: ISlider[],
+}) => {
+
+  const uniqueKey = (): number => {
+    return Math.random() * Math.random() * Math.random();
+  };
+
   return (
     <div className="Game-slider">
       <Swiper
@@ -22,7 +39,7 @@ const GameSlider = ({ trailerData, sliderData }: propsTypes) => {
         className="mySwiper"
       >
         {trailerData &&
-          trailerData.map((video: { data: { max: string } }) => {
+          trailerData.map((video) => {
             const { max } = video.data;
             return (
               <SwiperSlide key={uniqueKey()}>

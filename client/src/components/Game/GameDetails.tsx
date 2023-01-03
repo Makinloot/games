@@ -1,35 +1,7 @@
-export type propsTypes = {
-  data: {
-    id: number;
-    name: string;
-    background_image: string;
-    reviews_count: number;
-    released: number;
-    developers: [
-      {
-        name: string;
-      }
-    ];
-    publishers: [
-      {
-        name: string;
-      },
-      {
-        name: string;
-      }
-    ];
-    genres: [];
-    description_raw: string;
-    ratings: [
-      {
-        title: string;
-        percent: number;
-      }
-    ];
-  };
-};
+import Error from "../404";
+import { IGameData } from "../../dataTypes";
 
-const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
+const GameDetails = ({ data }: { data: IGameData }): JSX.Element => {
   const {
     id,
     name,
@@ -41,7 +13,7 @@ const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
     genres,
     description_raw,
   } = data;
-  if(data) {
+  if (data) {
     return (
       <div className="Game-details flex-col">
         {/* game image */}
@@ -49,31 +21,49 @@ const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
           <img src={background_image} alt={name} />
         </div>
         <div className="details-text flex-col">
-          <div className="reviews">
-            <div className="detail-tag">all reviews: {reviews_count}</div>
-            {data.ratings.map(rating => {
-              const { title, percent } = rating;
-              return <div className="detail-tag" key={id}>mostly {title} <span>{percent}%</span></div>
-            }).slice(0, 1)}
-          </div>
-          {/* game release */}
-          <div className="release">
-            <div className="detail-tag">released: {released}</div>
-          </div>
           {/* game publishers */}
           <div className="publishers">
             <div className="detail-tag">
-              developers: {developers.map(developer => developer.name).join(', ')}
+              <span className="tag-title">developers: </span>{" "}
+              {developers &&
+                developers.map((developer) => developer.name).join(", ")}
             </div>
             <div className="detail-tag">
-              publishers: {publishers.map(publisher => publisher.name).join(', ')}
+              <span className="tag-title">publishers: </span>{" "}
+              {publishers &&
+                publishers.map((publisher) => publisher.name).join(", ")}
             </div>
           </div>
           {/* game genres */}
           <div className="genres">
             <div className="detail-tag">
-              genres:{" "}
+              <span className="tag-title">genres: </span>{" "}
               {genres.map((genre: { name: string }) => genre.name).join(", ")}
+            </div>
+          </div>
+          {/* game reviews */}
+          <div className="reviews">
+            <div className="detail-tag">
+              {" "}
+              <span className="tag-title">all reviews: </span> {reviews_count}
+            </div>
+            {data.ratings
+              .map((rating) => {
+                const { title, percent } = rating;
+                return (
+                  <div className="detail-tag" key={id}>
+                    <span className="tag-title">mostly: </span> {title}{" "}
+                    {percent}%
+                  </div>
+                );
+              })
+              .slice(0, 1)}
+          </div>
+          {/* game release */}
+          <div className="release">
+            <div className="detail-tag">
+              {" "}
+              <span className="tag-title">released: </span> {released}
             </div>
           </div>
           {/* game description */}
@@ -84,6 +74,8 @@ const GameDetails = ({ data }: propsTypes): JSX.Element | undefined | any => {
       </div>
     );
   }
+
+  return <Error />;
 };
 
 export default GameDetails;

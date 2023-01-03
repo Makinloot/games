@@ -1,8 +1,7 @@
 import Search from "./Search";
 import Burger from "./Burger";
-import logo from "../../../logo.png";
 
-const Header = () => {
+const Header = (): JSX.Element => {
 
   return (
     <div className="Header">
@@ -11,7 +10,7 @@ const Header = () => {
           <nav className="Header-menu">
             <a href="/">Home</a>
             <a href="/browse">Browse</a>
-            <a href="#">Contact</a>
+            <a href="/contact">Contact</a>
           </nav>
           <Search />
           <Burger />
