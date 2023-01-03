@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IGameListResults } from "../../dataTypes";
+import Loading from "../Loading";
 
 const List = () => {
   const { name } = useParams();
@@ -53,7 +54,7 @@ const List = () => {
     );
   }
 
-  return null;
+  return <Loading />;
 };
 
 export default List;

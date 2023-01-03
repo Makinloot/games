@@ -24,6 +24,7 @@ const Game = (): JSX.Element => {
     setGameData(data);
   }
 
+  
   if (gameData) {
     const { data } = gameData;
     const { name } = data;

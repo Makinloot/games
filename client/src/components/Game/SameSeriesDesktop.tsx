@@ -1,6 +1,9 @@
 import { IResults } from "../../dataTypes";
 
 const SameSeriesDesktop = ({ data }: { data: IResults[] }) => {
+  const uniqueKey = ():number => {
+    return Math.random() * Math.random() * Math.random();
+  }
   return (
     <>
       <strong className="Series-title">Games from same series</strong>
@@ -41,8 +44,8 @@ const SameSeriesDesktop = ({ data }: { data: IResults[] }) => {
                     <div className="hover-details-genres">
                       <p>genres:</p>
                       <div className="genres-wrapper flex-row">
-                        {game.genres.map(genre => <div className="genre">{genre.name}</div> )}
-                        {/* <div className="genre">{game.genres.slice(0, 4).join(', ')}</div> */}
+                        {game.genres.map(genre => <div className="genre" key={uniqueKey()}>{genre.name}</div> )}
+                        {game.tags.map(tag => <div className="genre" key={uniqueKey()}>{tag.name}</div> )}
                       </div>
                     </div>
                   </a>

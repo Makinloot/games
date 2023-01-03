@@ -34,7 +34,7 @@ const Search = () => {
 
   return (
     <form className="Header-search flex-row" onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} />
+      <input type="text" onChange={handleChange} required />
       <button className="flex-row">
         <i className="fa-solid fa-magnifying-glass"></i>
       </button>
