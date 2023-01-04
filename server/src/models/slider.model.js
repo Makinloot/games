@@ -11,6 +11,7 @@ dotenv.config({ path: path.join(__dirname, "../../", ".env") });
 let sliderDataArr = [];
 
 // fetch games from page 1 to 50 and send random one to user
+sliderGames();
 async function sliderGames() {
   const KEY = process.env.RAWG_KEY;
   const randomNumber = Math.floor(Math.random() * 50) + 1; // generate random page number up to 50
@@ -26,4 +27,4 @@ async function sliderGames() {
   }
 }
 
-export { sliderDataArr, sliderGames };
+export { sliderDataArr };

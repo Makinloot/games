@@ -1,8 +1,11 @@
-import { sliderDataArr, sliderGames } from "../../models/slider.model.js";
+import { sliderDataArr } from "../../models/slider.model.js";
 
 function httpSliderGames(req, res) {
-  sliderGames();
-  res.status(200).json(sliderDataArr);
+  try {
+    res.status(200).json(sliderDataArr);
+  } catch (error) {
+    res.status(500).json('Server error', error);
+  }
 }
 
 export { httpSliderGames };

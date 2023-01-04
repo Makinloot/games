@@ -170,6 +170,11 @@
 
 @media (max-width: 480px) {
   .Header {
+
+    &-wrapper {
+      gap: 1rem;
+    }
+
     &-menu {
       display: none;
     }

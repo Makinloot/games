@@ -25,8 +25,8 @@ const Burger = () => {
       </div>
       <div className="burger-menu-content" ref={menuRef}>
         <a href="/">home</a>
-        <a href="#">browse</a>
-        <a href="#">contact</a>
+        <a href="/browse">browse</a>
+        <a href="/contact">contact</a>
       </div>
     </div>
   );

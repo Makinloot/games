@@ -281,3 +281,26 @@ export interface IGamesData {
   trailerData: ITrailers[];
   data: IGameData;
 }
+
+
+// genre data types
+interface IGenreGames {
+  added: number;
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface IGenreResults {
+  games: IGenreGames[];
+  games_count: number;
+  id: number;
+  image_background: string;
+  name: string;
+  slug: string;
+}
+
+export interface IGenres extends IMainData {
+  results: IGenreResults[];
+}
+

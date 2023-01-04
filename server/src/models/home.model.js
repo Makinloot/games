@@ -11,6 +11,7 @@ dotenv.config({ path: path.join(__dirname, "../../", ".env") });
 let dataArr = [];
 
 // fetch most rated games from page 1 to 20 and send random page data
+getPopularGames();
 async function getPopularGames() {
   const KEY = process.env.RAWG_KEY;
   const randomNumber = Math.floor(Math.random() * 10) + 1; // generate random number up to 20
@@ -26,4 +27,4 @@ async function getPopularGames() {
   }
 }
 
-export { dataArr, getPopularGames };
+export { dataArr };
