@@ -11,7 +11,6 @@ import Pagination from "../Pagination";
 const Browse = (): JSX.Element => {
   const [browseData, setBrowseData] = useState<IBrowse | null>(null);
   const { page } = useParams();
-  console.log(browseData);
 
   useEffect(() => {
     fetchBrowseData();
@@ -29,11 +28,11 @@ const Browse = (): JSX.Element => {
     return (
       <div className="Browse">
         <div className="container">
+          <Genres data={browseData} />
           <div className="Browse-wrapper">
-            <Genres data={browseData} />
             <Games data={browseData} />
-            <Pagination count={count} next={next} previous={previous} endpoint="/browse/" />
           </div>
+          <Pagination count={count} endpoint="/browse/" />
         </div>
       </div>
     );

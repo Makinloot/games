@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path={`/game/:id`} element={<Game />} />
-          <Route path={`/search/:name`} element={<List />} />
+          <Route path={`/search/:name/:page`} element={<List />} />
           <Route path={`/browse/:page`} element={<Browse />} />
           <Route path='*' element={<Error />} />
         </Routes>

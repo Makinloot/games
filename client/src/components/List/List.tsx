@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IGameListResults } from "../../dataTypes";
 import Loading from "../Loading";
+import Pagination from "../Pagination";
 
 const List = () => {
-  const { name } = useParams();
+  const { name, page } = useParams();
   const [gameData, setGameData] = useState<IGameListResults | null>(null);
-  console.log("loil", gameData);
 
   useEffect(() => {
     fetchGame(name);
@@ -15,6 +15,7 @@ const List = () => {
   async function fetchGame(gameName: number | string | undefined) {
     const searchName = {
       name: name,
+      page: page,
     };
     const options = {
       method: "POST",
@@ -30,27 +31,30 @@ const List = () => {
   if (gameData) {
     const { results, count } = gameData;
     return (
-      <div className="List">
-        <div className="container">
-          <div className="List-count">{count} results match your search.</div>
-          <div className="List-wrapper flex-col">
-            {results.map((result) => {
-              const { name, background_image, released, id } = result;
-              return (
-                <a href={`/game/${id}`} className="List-item flex-row" key={id}>
-                  <div className="list-image">
-                    <img src={background_image} alt={name} />
-                  </div>
-                  <div className="list-title">
-                    <h3>{name}</h3>
-                  </div>
-                  <div className="list-date">{released}</div>
-                </a>
-              );
-            })}
+      <>
+        <div className="List">
+          <div className="container">
+            <div className="List-count">{count} results match your search.</div>
+            <div className="List-wrapper flex-col">
+              {results.map((result) => {
+                const { name, background_image, released, id } = result;
+                return (
+                  <a href={`/game/${id}`} className="List-item flex-row" key={id}>
+                    <div className="list-image">
+                      <img src={background_image} alt={name} />
+                    </div>
+                    <div className="list-title">
+                      <h3>{name}</h3>
+                    </div>
+                    <div className="list-date">{released}</div>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
+        <Pagination count={count} endpoint={`/search/${name}/`} />
+      </>
     );
   }
 

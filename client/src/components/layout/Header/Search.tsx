@@ -1,11 +1,14 @@
 import { useState, FormEvent } from "react";
+import { useParams } from "react-router-dom";
+
 const Search = () => {
   const [searchValue, setSearchValue] = useState<string | number | null>(null);
   const [searchResults, setSearchResults] = useState<[]>([]);
+  const { page } = useParams();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    window.location.href=`/search/${searchValue}`;
+    window.location.href=`/search/${searchValue}/1`;
   }
 
   const handleChange = (e: HTMLInputElement | any) => {
@@ -23,7 +26,7 @@ const Search = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(searchValue),
     };
-    const url = `http://localhost:5000/search/${searchValue}`;
+    const url = `http://localhost:5000/search/${searchValue}/${page}`;
     const res = await fetch(url, options);
     const data = await res.json();
 
@@ -49,7 +52,7 @@ const Search = () => {
                 }) => {
                   const { name, background_image, id } = result;
                   return (
-                    <a href={`/game/${id}`} className="result" key={id}>
+                    <a href={`/game/${id}/1`} className="result" key={id}>
                       <img src={background_image} alt={name} />
                       <h4>{name}</h4>
                     </a>
@@ -57,7 +60,7 @@ const Search = () => {
                 }
               ).slice(0, 4)
             : 
-            ""
+            null
         }
       </div>
     </form>

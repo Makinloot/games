@@ -11,8 +11,8 @@ dotenv.config({ path: path.join(__dirname, "../../../", ".env") });
 const KEY = process.env.RAWG_KEY;
 
 async function httpSearchGame(req, res) {
-  const { name } = req.body;
-  const url = `https://api.rawg.io/api/games?key=${KEY}&search=${name}&search_precise=true&search_exact=true&exclude_additions=true&ordering=-released&page_size=10&metacritic=50,100`;
+  const { name, page } = req.body;
+  const url = `https://api.rawg.io/api/games?key=${KEY}&search=${name}&search_exact=true&exclude_additions=true&ordering=metacritic=50,100&page=${page}&page_size=10&metacritic=50,100`;
   try {
     const resp = await fetch(url);
     const data = await resp.json();

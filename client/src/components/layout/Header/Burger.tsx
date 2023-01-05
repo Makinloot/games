@@ -25,7 +25,7 @@ const Burger = () => {
       </div>
       <div className="burger-menu-content" ref={menuRef}>
         <a href="/">home</a>
-        <a href="/browse">browse</a>
+        <a href="/browse/1">browse</a>
         <a href="/contact">contact</a>
       </div>
     </div>
