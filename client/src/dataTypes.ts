@@ -300,7 +300,18 @@ export interface IGenreResults {
   slug: string;
 }
 
-export interface IGenres extends IMainData {
+
+// types for Browse.tsx
+interface IGenres extends IMainData {
   results: IGenreResults[];
+}
+
+interface IGames extends IMainData {
+  results: IGameData[];
+}
+
+export interface IBrowse {
+  gamesArr: IGames[];
+  genresArr: IGenres[];
 }
 

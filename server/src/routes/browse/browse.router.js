@@ -1,8 +1,8 @@
 import express from "express";
-import { httpGetGenres } from "./browse.controller.js";
+import { httpGetGames } from "./browse.controller.js";
 
 const browseRouter = express.Router();
-browseRouter.get('/', httpGetGenres);
+browseRouter.get('/:pageNumber', httpGetGames);
 
 export {
   browseRouter,

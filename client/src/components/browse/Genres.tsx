@@ -1,20 +1,13 @@
-import { IGenres } from "../../dataTypes";
+import { IBrowse } from "../../dataTypes";
 
 const Genres = ({ data }: {
-  data: IGenres[];
+  data: IBrowse;
 }) => {
-
-  console.log(data)
-
-  // const filterData = data[0].results.filter(result => {
-  //   if(result.name === 'Massively Multiplayer')
-  // });
 
   const handleGenresMap = (): JSX.Element[] | undefined => {
     if (data) {
-      const shuffled = data[0].results.sort((): number => 0.5 - Math.random()); // return genre elements in random positions
+      const shuffled = data.genresArr[0].results.sort((): number => 0.5 - Math.random()); // return genre elements in random positions
       const filterShuffled = shuffled.filter(item => item.name !== 'Platformer' && item.name !== 'Educational');
-      console.log(filterShuffled, 'filtered')
       const genresMap = filterShuffled.map((genre) => {
           let { id, name } = genre;
           if(name === "Massively Multiplayer") name = 'multiplayer';

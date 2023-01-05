@@ -9,7 +9,7 @@ const Header = (): JSX.Element => {
         <div className="Header-wrapper flex-row">
           <nav className="Header-menu">
             <a href="/">Home</a>
-            <a href="/browse">Browse</a>
+            <a href="/browse/1">Browse</a>
             <a href="/contact">Contact</a>
           </nav>
           <Search />

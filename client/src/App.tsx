@@ -5,7 +5,7 @@ import Home from "./components/home/Home";
 import Game from './components/Game/Game';
 import List from './components/List/List';
 import Error from './components/404';
-import Browse from './components/browse/Browse';
+import Browse from './components/Browse/Browse';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path={`/game/:id`} element={<Game />} />
           <Route path={`/search/:name`} element={<List />} />
-          <Route path={`/browse`} element={<Browse />} />
+          <Route path={`/browse/:page`} element={<Browse />} />
           <Route path='*' element={<Error />} />
         </Routes>
 

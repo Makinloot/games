@@ -44,6 +44,8 @@
       font-size: $fs-small;
       font-family: $ff-bold;
       text-align: center;
+      transition: scale .2s;
+      user-select: none;
 
       @media (max-width: 1024px) {
         font-size: calc($fs-small - 4px);
@@ -79,6 +81,10 @@
       &:hover {
         background: $filter-grey;
         color: $clr-dark;
+      }
+
+      &:active {
+        scale: .9;
       }
     }
   }
