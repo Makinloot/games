@@ -13,6 +13,19 @@
 @import "./components/browse/Browse";
 @import "./components/Pagination";
 
+html {
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+    user-select: all;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $clr-whiteTr;
+    border-radius: 0.5rem;
+  }
+}
+
 body {
   background-color: rgb(25, 40, 63);
 }
@@ -22,5 +35,4 @@ body {
 }
 
 .Error {
-  
 }

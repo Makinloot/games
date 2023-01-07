@@ -282,7 +282,6 @@ export interface IGamesData {
   data: IGameData;
 }
 
-
 // genre data types
 interface IGenreGames {
   added: number;
@@ -300,18 +299,17 @@ export interface IGenreResults {
   slug: string;
 }
 
-
 // types for Browse.tsx
-interface IGenres extends IMainData {
-  results: IGenreResults[];
-}
-
 interface IGames extends IMainData {
   results: IGameData[];
 }
 
 export interface IBrowse {
   gamesArr: IGames[];
-  genresArr: IGenres[];
+  shuffledGenres: IGenreResults[];
 }
 
+export interface IBrowseGamesByGenres {
+  data: IGames;
+  shuffledGenres: IGenreResults[];
+}

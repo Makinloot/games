@@ -21,18 +21,32 @@ async function getGenres() {
 
 let gamesArr = [];
 async function httpGetGames(req, res) {
-  const pageNumber = req.params.pageNumber;
+  const { pageNumber } = req.params;
   const url = `https://api.rawg.io/api/games?key=${KEY}&page=${pageNumber}&page_size=10&metacritic=80,100&exclude_additions=true&ordering=-updated`;
   const resp = await fetch(url);
   const data = await resp.json();
+  const shuffledGenres = genresArr[0].results.sort(() => 0.5 - Math.random()); // shuffle genres results
 
   gamesArr.length = 0;
   gamesArr.push(data);
 
   res.json({
-    genresArr,
+    shuffledGenres,
     gamesArr,
   });
 }
 
-export { httpGetGames };
+async function httpGamesByGenres(req, res) {
+  const { pageNumber, genre } = req.params;
+  const url = `https://api.rawg.io/api/games?key=${KEY}&page=${pageNumber}&page_size=10&genres=${genre}&metacritic=80,100&exclude_additions=true&ordering=-updated`;
+  const resp = await fetch(url);
+  const data = await resp.json();
+  const shuffledGenres = genresArr[0].results.sort(() => 0.5 - Math.random()); // shuffle genres results
+
+  res.json({
+    data,
+    shuffledGenres,
+  });
+}
+
+export { httpGetGames, httpGamesByGenres };

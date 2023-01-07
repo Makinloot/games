@@ -1,21 +1,15 @@
 import Loading from "../Loading";
+import { IGameData } from "../../dataTypes";
 
-import { IBrowse } from "../../dataTypes";
-
-const Games = ({ data }: { data: IBrowse }): JSX.Element => {
+const Games = ({ data }: { data: IGameData[] }): JSX.Element => {
   if (data) {
-    const { gamesArr } = data;
-    const { results } = gamesArr[0];
-
-    console.log(gamesArr[0].results);
-
-    const gamesMap = results.map((game): JSX.Element => {
+    const gamesMap = data.map((game): JSX.Element => {
       const { background_image, name, id, released, genres, platforms } = game;
 
       return (
         <div className="Browse-games-item" key={id}>
           <div className="Browse-games-img">
-            <img src={background_image} alt={name} />
+            <img src={background_image || 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png'} alt={name} />
           </div>
           <div className="Browse-games-details flex-col">
             <h4>Information about the game</h4>

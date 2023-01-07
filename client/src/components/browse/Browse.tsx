@@ -24,15 +24,17 @@ const Browse = (): JSX.Element => {
   }
 
   if (browseData) {
-    const { count, next, previous } = browseData.gamesArr[0];
+    const { count, results } = browseData.gamesArr[0];
+    const genreResults = browseData.shuffledGenres;
+    console.log(browseData);
     return (
       <div className="Browse">
         <div className="container">
-          <Genres data={browseData} />
+          <Genres data={genreResults} />
           <div className="Browse-wrapper">
-            <Games data={browseData} />
+            <Games data={results} />
           </div>
-          <Pagination count={count} endpoint="/browse/" />
+          <Pagination count={count} endpoint="/browse" />
         </div>
       </div>
     );

@@ -26,9 +26,13 @@
   &-search {
     position: relative;
     background: $filter-aquablue;
-
-    &:has(input[type=text]:focus) .search-results {
+    
+    & input[type=text]:focus ~ .search-results {
       opacity: 1;
+      pointer-events: all;
+    }
+
+    & .search-results:hover {
       pointer-events: all;
     }
 

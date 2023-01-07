@@ -1,23 +1,21 @@
-import { IBrowse } from "../../dataTypes";
+import { IBrowse, IGenreResults } from "../../dataTypes";
 
-const Genres = ({ data }: {
-  data: IBrowse;
-}) => {
-
+const Genres = ({ data }: { data: IGenreResults[] }) => {
   const handleGenresMap = (): JSX.Element[] | undefined => {
     if (data) {
-      const shuffled = data.genresArr[0].results.sort((): number => 0.5 - Math.random()); // return genre elements in random positions
-      const filterShuffled = shuffled.filter(item => item.name !== 'Platformer' && item.name !== 'Educational');
-      const genresMap = filterShuffled.map((genre) => {
-          let { id, name } = genre;
-          if(name === "Massively Multiplayer") name = 'multiplayer';
-          if(name === "Board Games") name = 'board';
+      const filteredGenres = data.filter(
+        (item) =>
+          item.name !== "Platformer" &&
+          item.name !== "Educational" &&
+          item.name !== "RPG"
+      );
+      const genresMap = filteredGenres
+        .map((genre) => {
+          let { id, name, slug } = genre;
+          if (name === "Board Games") name = "board";
+          if (name == "Massively Multiplayer") name = "multiplayer";
           return (
-            <a 
-              href={"/browse/" + id}
-              className="genre"
-              key={id}
-            >
+            <a href={`/browse/${slug}/1`} className="genre" key={id}>
               {name}
             </a>
           );
@@ -29,11 +27,9 @@ const Genres = ({ data }: {
   return (
     <>
       <h2 className="genre-heading">genres</h2>
-      <div className="Browse-genres flex-row">
-        {handleGenresMap()}
-      </div>
+      <div className="Browse-genres flex-row">{handleGenresMap()}</div>
     </>
-    );
+  );
 };
 
 export default Genres;
