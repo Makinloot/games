@@ -15,14 +15,13 @@ const BrowseByGenres = (): JSX.Element => {
   }, []);
 
   async function fetchBrowseGenresData(): Promise<void> {
-    const url = `http://localhost:5000/browse/${page}/${genre}`;
+    const url = `/api/browse/${page}/${genre}`;
     const res = await fetch(url);
     const data = await res.json();
     setBrowseGenresData(data);
   }
 
   if (browseGenresData) {
-    console.log(browseGenresData, "this shit");
     const { count, results } = browseGenresData.data;
     const genreResults = browseGenresData.shuffledGenres;
     return (

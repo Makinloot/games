@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Footer = (): JSX.Element => {
 
   return (
@@ -6,10 +8,9 @@ const Footer = (): JSX.Element => {
         <div className="Footer-wrapper">
           <div className="Footer-socials flex-row">
             <nav className="Footer-menu">
-              <a className="footer-link" href="/">home</a>
-              <a className="footer-link" href="/about-us">about us</a>
-              <a className="footer-link" href="/contact">contact</a>
-              <a className="footer-link" href="/partners">partners</a>
+              <Link className="footer-link" to={"/"}>home</Link>
+              <Link className="footer-link" to={"/browse/1"}>browse</Link>
+              <Link className="footer-link" to={"/contact"}>contact</Link>
             </nav>
             <div className="socials flex-row">
               <a href="https://github.com/Makinloot" title="github" target="_blank">

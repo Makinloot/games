@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "cd server && npm start",
     "client": "cd client && npm run dev",
     "sass": "cd client/src && npm run sass",
     "devServer": "cd server && npm run dev",
-    "dev": "concurrently \"npm run devServer\" \"npm run client\" \"npm run sass\""
+    "dev": "concurrently \"npm run devServer\" \"npm run client\" \"npm run sass\"",
+    "build": "cd client && npm run build"
   },
   "author": "Tornike Epitashvili",
   "license": "ISC",

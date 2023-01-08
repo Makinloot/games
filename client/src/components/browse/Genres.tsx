@@ -1,13 +1,10 @@
-import { IBrowse, IGenreResults } from "../../dataTypes";
+import { IGenreResults } from "../../dataTypes";
 
 const Genres = ({ data }: { data: IGenreResults[] }) => {
   const handleGenresMap = (): JSX.Element[] | undefined => {
     if (data) {
       const filteredGenres = data.filter(
-        (item) =>
-          item.name !== "Platformer" &&
-          item.name !== "Educational" &&
-          item.name !== "RPG"
+        (item) => item.name !== "Platformer" && item.name !== "Educational"
       );
       const genresMap = filteredGenres
         .map((genre) => {
@@ -19,7 +16,8 @@ const Genres = ({ data }: { data: IGenreResults[] }) => {
               {name}
             </a>
           );
-        }).slice(0, 10); // return 10 genre from shuffled results array as jsx element
+        })
+        .slice(0, 10); // return 10 genre from shuffled results array as jsx element
       return genresMap;
     }
   };

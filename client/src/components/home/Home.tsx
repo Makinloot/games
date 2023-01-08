@@ -9,8 +9,8 @@ const Home = (): JSX.Element => {
   const [sliderData, setSliderData] = useState<IGameListResults[] | null>(null);
 
   useEffect(() => {
-    const url = "http://localhost:5000/hero";
-    const sliderUrl = "http://localhost:5000/slider";
+    const url = "/api/hero";
+    const sliderUrl = "/api/slider";
     fetchData(url, setHeroData);
     fetchData(sliderUrl, setSliderData);
   }, []);

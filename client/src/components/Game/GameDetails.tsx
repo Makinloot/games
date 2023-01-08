@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Error from "../404";
 import { IGameData } from "../../dataTypes";
 
@@ -38,7 +39,15 @@ const GameDetails = ({ data }: { data: IGameData }): JSX.Element => {
           <div className="genres">
             <div className="detail-tag">
               <span className="tag-title">genres: </span>{" "}
-              {genres && genres.map((genre: { name: string }) => genre.name).join(", ")}
+              {genres &&
+                genres
+                  .map(
+                    (genre: {
+                      name: string;
+                      slug: string;
+                      id: number | string;
+                    }) => <Link to={`/browse/${genre.slug}/1`} key={genre.id}>{genre.name} | </Link>
+                  )}
             </div>
           </div>
           {/* game reviews */}
@@ -47,17 +56,18 @@ const GameDetails = ({ data }: { data: IGameData }): JSX.Element => {
               {" "}
               <span className="tag-title">all reviews: </span> {reviews_count}
             </div>
-            {data.ratings && data.ratings
-              .map((rating) => {
-                const { title, percent } = rating;
-                return (
-                  <div className="detail-tag" key={id}>
-                    <span className="tag-title">mostly: </span> {title}{" "}
-                    {percent}%
-                  </div>
-                );
-              })
-              .slice(0, 1)}
+            {data.ratings &&
+              data.ratings
+                .map((rating) => {
+                  const { title, percent } = rating;
+                  return (
+                    <div className="detail-tag" key={id}>
+                      <span className="tag-title">mostly: </span> {title}{" "}
+                      {percent}%
+                    </div>
+                  );
+                })
+                .slice(0, 1)}
           </div>
           {/* game release */}
           <div className="release">

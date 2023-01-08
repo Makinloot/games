@@ -5,8 +5,8 @@ import Home from "./components/home/Home";
 import Game from "./components/Game/Game";
 import List from "./components/List/List";
 import Error from "./components/404";
-import Browse from "./components/Browse/Browse";
-import BrowseByGenres from "./components/Browse/BrowseByGenres";
+import Browse from "./components/browse/Browse";
+import BrowseByGenres from "./components/browse/BrowseByGenres";
 
 function App() {
   return (

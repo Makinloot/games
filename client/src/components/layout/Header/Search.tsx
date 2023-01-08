@@ -1,4 +1,5 @@
 import { useState, FormEvent } from "react";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState<string | number | null>(null);
@@ -24,7 +25,7 @@ const Search = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(searchValue),
     };
-    const url = `http://localhost:5000/search/${searchValue}`;
+    const url = `/api/search/${searchValue}`;
     const res = await fetch(url, options);
     const data = await res.json();
 
@@ -50,10 +51,10 @@ const Search = () => {
                 }) => {
                   const { name, background_image, id } = result;
                   return (
-                    <a href={`/game/${id}`} className="result" key={id}>
+                    <Link to={`/game/${id}`} className="result" key={id}>
                       <img src={background_image} alt={name} />
                       <h4>{name}</h4>
-                    </a>
+                    </Link>
                   );
                 }
               ).slice(0, 4)

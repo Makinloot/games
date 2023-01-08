@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Search from "./Search";
 import Burger from "./Burger";
 
@@ -8,9 +9,9 @@ const Header = (): JSX.Element => {
       <div className="container">
         <div className="Header-wrapper flex-row">
           <nav className="Header-menu">
-            <a href="/">Home</a>
-            <a href="/browse/1">Browse</a>
-            <a href="/contact">Contact</a>
+            <Link to={"/"}>home</Link>
+            <Link to={"/browse/1"}>browse</Link>
+            <Link to={"/contact"}>contact</Link>
           </nav>
           <Search />
           <Burger />

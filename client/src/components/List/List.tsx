@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IGameListResults } from "../../dataTypes";
 import Loading from "../Loading";
@@ -22,7 +22,7 @@ const List = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(searchName),
     };
-    const url = `http://localhost:5000/search/${gameName}`;
+    const url = `/api/search/${gameName}`;
     const res = await fetch(url, options);
     const data = await res.json();
     setGameData(data);
@@ -39,7 +39,7 @@ const List = () => {
               {results.map((result) => {
                 const { name, background_image, released, id } = result;
                 return (
-                  <a href={`/game/${id}`} className="List-item flex-row" key={id}>
+                  <Link to={`/game/${id}`} className="List-item flex-row" key={id}>
                     <div className="list-image">
                       <img src={background_image} alt={name} />
                     </div>
@@ -47,7 +47,7 @@ const List = () => {
                       <h3>{name}</h3>
                     </div>
                     <div className="list-date">{released}</div>
-                  </a>
+                  </Link>
                 );
               })}
             </div>

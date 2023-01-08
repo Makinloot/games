@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 
 import { IBrowse } from "../../dataTypes";
 
-import Genres from "./Genres";
 import Games from "./Games";
+import Genres from "./Genres";
 import Loading from "../Loading";
 import Pagination from "../Pagination";
 
@@ -17,7 +17,7 @@ const Browse = (): JSX.Element => {
   }, []);
 
   async function fetchBrowseData(): Promise<void> {
-    const url = `http://localhost:5000/browse/${page}`;
+    const url = `/api/browse/${page}`;
     const res = await fetch(url);
     const data = await res.json();
     setBrowseData(data);

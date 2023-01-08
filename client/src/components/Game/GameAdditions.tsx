@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IResults } from "../../dataTypes";
+import { Link } from "react-router-dom";
 
 const GameAdditions = ({ additionsData }: { additionsData: IResults[] }) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -17,9 +18,7 @@ const GameAdditions = ({ additionsData }: { additionsData: IResults[] }) => {
           {additionsData.map((item) => {
             const { name, id } = item;
             return (
-              <a href={`/game/${id}`} key={id}>
-                {name}
-              </a>
+              <Link to={`/game/${id}`} key={id}>{name}</Link>
             );
           })}
         </div>

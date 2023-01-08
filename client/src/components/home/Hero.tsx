@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 // swiper react components
 import { Swiper, SwiperSlide } from "swiper/react";
 // swiper styles
@@ -46,7 +47,7 @@ const Hero = ({ data }: { data: IResults[] }): JSX.Element => {
                   >
                     <img src={background_image} alt={name} />
                     <h3>{name}</h3>
-                    <a href={`/game/${id}`}>check out</a>
+                    <Link className="Hero-primary-link" to={`/game/${id}`}>check out</Link>
                   </SwiperSlide>
                 );
               }
@@ -59,11 +60,7 @@ const Hero = ({ data }: { data: IResults[] }): JSX.Element => {
             className="mySwiper Hero-secondary"
           >
             {selected.map(
-              (game: {
-                id: number;
-                background_image: string;
-                name: string;
-              }) => {
+              (game) => {
                 const { background_image, name } = game;
                 const id = Number(game.id);
                 return (

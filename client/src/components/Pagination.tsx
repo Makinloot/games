@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 type TPagination = {
   count: number;
@@ -13,27 +13,27 @@ const Pagination: React.FC<TPagination> = ({ count, endpoint } ): JSX.Element | 
     <div className="Pagination flex-row">
 
       {/* first page */}
-      {Number(page) !== 1 ? <a href={`${endpoint}/1`}><i className="fa-solid fa-angles-left"></i></a> : null }
+      {Number(page) !== 1 ? <Link to={`${endpoint}/1`}><i className="fa-solid fa-angles-left"></i></Link> : null }
 
       {/* prev page */}
-      {Number(page) - 1 > 0 ? <a href={`${endpoint}/${Number(page) - 1}`}><i className="fa-solid fa-angle-left"></i></a> : null }
+      {Number(page) - 1 > 0 ? <Link to={`${endpoint}/${Number(page) - 1}`}><i className="fa-solid fa-angle-left"></i></Link> : null }
 
       {/* prev pages */}
-      {Number(page) - 2 > 0 ? <a href={`${endpoint}/${Number(page) - 2}`}>{Number(page) - 2}</a> : null }
-      {Number(page) - 1 > 0 ? <a href={`${endpoint}/${Number(page) - 1}`}>{Number(page) - 1}</a> : null }
+      {Number(page) - 2 > 0 ? <Link to={`${endpoint}/${Number(page) - 2}`}>{Number(page) - 2}</Link> : null }
+      {Number(page) - 1 > 0 ? <Link to={`${endpoint}/${Number(page) - 1}`}>{Number(page) - 1}</Link> : null }
 
       {/* current page */}
-      <a href={`${endpoint}/${page}`} className="active">{page}</a>
+      <Link to={`${endpoint}/${page}`} className="active">{page}</Link>
 
       {/* next pages */}
-      {Number(page) + 1 <= pagesLength ? <a href={`${endpoint}/${Number(page) + 1}`}>{Number(page) + 1}</a> : null }
-      {Number(page) + 2 <= pagesLength ? <a href={`${endpoint}/${Number(page) + 2}`}>{Number(page) + 2}</a> : null }
+      {Number(page) + 1 <= pagesLength ? <Link to={`${endpoint}/${Number(page) + 1}`}>{Number(page) + 1}</Link> : null }
+      {Number(page) + 2 <= pagesLength ? <Link to={`${endpoint}/${Number(page) + 2}`}>{Number(page) + 2}</Link> : null }
 
       {/* next page */}
-      {Number(page) + 1 <= pagesLength ? <a href={`${endpoint}/${Number(page) + 1}`}><i className="fa-solid fa-angle-right"></i></a> : null }
+      {Number(page) + 1 <= pagesLength ? <Link to={`${endpoint}/${Number(page) + 1}`}><i className="fa-solid fa-angle-right"></i></Link> : null }
 
       {/* last page */}
-      {Number(page) !== pagesLength ? <a href={`${endpoint}/${pagesLength}`}><i className="fa-solid fa-angles-right"></i></a> : null }
+      {Number(page) !== pagesLength ? <Link to={`${endpoint}/${pagesLength}`}><i className="fa-solid fa-angles-right"></i></Link> : null }
 
     </div>
   );

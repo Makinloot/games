@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -53,27 +54,26 @@ const Slider = ({ data }: { data: IResults[] }): JSX.Element => {
                   className="Slider-slide"
                   id={JSON.stringify(id)}
                   key={id}
-                  onClick={(e) => {
-                    window.location.href = `/game/${id}`;
-                  }}
                 >
-                  <div className="Slider-img">
-                    <img src={background_image} alt={name} />
-                  </div>
-                  <div className="Slider-text flex-col">
-                    <h4>{name}</h4>
-                    <strong>
-                      {genres
-                        .map((genre: { name: string }) => genre.name)
-                        .slice(0, 2)
-                        .join(", ")}
-                    </strong>
+                  <Link to={`/game/${id}`}>
+                    <div className="Slider-img">
+                      <img src={background_image} alt={name} />
+                    </div>
+                    <div className="Slider-text flex-col">
+                      <h4>{name}</h4>
+                      <strong>
+                        {genres
+                          .map((genre: { name: string }) => genre.name)
+                          .slice(0, 2)
+                          .join(", ")}
+                      </strong>
 
-                    <p>
-                      ratings: {rating} {`(${ratings_count})`}
-                    </p>
-                  </div>
-                  <input type="hidden" value={id} />
+                      <p>
+                        ratings: {rating} {`(${ratings_count})`}
+                      </p>
+                    </div>
+                    <input type="hidden" value={id} />
+                  </Link>
                 </SwiperSlide>
               );
             })}

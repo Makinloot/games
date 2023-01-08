@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,7 +12,6 @@ import { FreeMode, Pagination } from "swiper";
 import { IResults } from "../../dataTypes";
 
 const SameSeriesSlider = ({ data }: { data: IResults[] }) => {
-  console.log("LMAO", data);
   const { width } = document.body.getBoundingClientRect();
   const handleWidth = () => {
     if (width > 900) return 5.85;
@@ -37,11 +37,11 @@ const SameSeriesSlider = ({ data }: { data: IResults[] }) => {
               const { background_image, name, id } = slide;
               return (
                 <SwiperSlide className="slide" key={id}>
-                  <a href={"/game/" + id} title={name}>
+                  <Link to={"/game/" + id} title={name}>
                     <div className="img-container">
                       <img src={background_image} alt={name} />
                     </div>
-                  </a>
+                  </Link>
                 </SwiperSlide>
               );
             })}

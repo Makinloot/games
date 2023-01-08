@@ -18,7 +18,7 @@ const Game = (): JSX.Element => {
   }, []);
 
   async function fetchGame(gameId: number | string | undefined) {
-    const url = `http://localhost:5000/game/${gameId}`;
+    const url = `/api/game/${gameId}`;
     const res = await fetch(url);
     const data = await res.json();
     setGameData(data);

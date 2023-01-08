@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Burger = () => {
   const [open, setOpen] = useState(false);
@@ -24,9 +25,9 @@ const Burger = () => {
         <div></div>
       </div>
       <div className="burger-menu-content" ref={menuRef}>
-        <a href="/">home</a>
-        <a href="/browse/1">browse</a>
-        <a href="/contact">contact</a>
+        <Link className="burger-menu-content-link" to={"/"}>home</Link>
+        <Link className="burger-menu-content-link" to={"/browse/1"}>browse</Link>
+        <Link className="burger-menu-content-link" to={"/contact"}>contact</Link>
       </div>
     </div>
   );
